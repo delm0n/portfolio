@@ -1,0 +1,78 @@
+@import "./default/_normalize.scss";
+@import "./fonts/_montserrat.scss";
+@import "./colors.scss";
+
+::-webkit-scrollbar {
+  width: 12px;
+
+  @media (max-width: 576px) {
+    width: 6px;
+  }
+  background-color: rgba(239, 239, 239, 0.5);
+}
+
+.img-wrap {
+  img {
+    max-width: 100%;
+  }
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(57, 57, 57, 0.3);
+  z-index: 1;
+  cursor: pointer;
+
+  &:hover {
+    background: rgba(57, 57, 57, 0.45);
+  }
+
+  &:active {
+    background: rgba(57, 57, 57, 0.6);
+  }
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgba(239, 239, 239, 0.2);
+}
+
+*::selection {
+  background: rgba(206, 205, 205, 0.8);
+  color: #2b2b2b;
+}
+
+#app {
+  color: var(--text-color);
+  background: var(--background);
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+
+  .container {
+    max-width: 1452px;
+    width: 85%;
+    padding: 0 16px;
+    margin: 0 auto;
+
+    @media (max-width: 768px) {
+      width: 90%;
+    }
+
+    @media (max-width: 576px) {
+      padding: 0 20px;
+      width: 100%;
+      max-width: 475px;
+    }
+  }
+}
+
+nav {
+  padding: 30px 0;
+
+  a {
+    font-weight: bold;
+    color: var(--text-color);
+
+    &.router-link-exact-active {
+      color: var(--accent);
+    }
+  }
+}

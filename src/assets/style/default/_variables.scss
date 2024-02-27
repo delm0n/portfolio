@@ -1,0 +1,145 @@
+$color-transition: color 0.2s ease;
+
+%input-container {
+  background: var(--input-background);
+  border: 1px solid #bbbbbb;
+  border-radius: 0px;
+  padding: 16px;
+  transition: 0.2s all;
+  color: var(--text-color);
+  font-size: 18px;
+  font-weight: 400;
+
+  @media (max-width: 576px) {
+    padding: 11px;
+    font-size: 14px;
+  }
+
+  input,
+  textarea {
+    resize: none;
+    background: transparent;
+    border: none;
+    width: 100%;
+    outline: 0 !important;
+  }
+
+  &:hover {
+    background: var(--input-background-hover);
+  }
+}
+
+%button-main {
+  display: block;
+  cursor: pointer;
+  padding: 14px;
+  max-width: 200px;
+  width: 100%;
+  text-align: center;
+  color: var(--text-color);
+  font-size: 14px;
+  line-height: 1.3;
+  font-weight: 400;
+  border: 1px solid var(--text-color);
+  border-radius: 0px;
+  transition: all 0.3s ease-in-out;
+  background-color: var(--background);
+
+  &:hover,
+  &:active {
+    background-color: var(--text-color);
+    color: var(--background);
+  }
+
+  &:active {
+    transform: translateY(2px);
+  }
+}
+
+%button-secondary {
+  display: block;
+  opacity: 0;
+  position: relative;
+  background: var(--background);
+  transition: all 0.3s;
+
+  color: var(--text-color);
+  cursor: pointer;
+  padding: 14px;
+  max-width: 200px;
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+
+  span {
+    display: block;
+
+    &:before,
+    &:after {
+      content: "";
+      width: 1px;
+      height: 0;
+      position: absolute;
+      transition: all 0.3s linear;
+      background: var(--accent);
+      transition-delay: 0s;
+    }
+
+    &:before {
+      left: 0;
+      top: 0;
+    }
+    &:after {
+      right: 0;
+      bottom: 0;
+    }
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    width: 0;
+    height: 1px;
+    position: absolute;
+    transition: all 0.3s linear;
+    background: var(--accent);
+    transition-delay: 0.3s;
+  }
+
+  &.active {
+    color: var(--accent);
+    opacity: 1;
+
+    &:before,
+    &:after {
+      width: 100%;
+      transition-delay: 0s;
+    }
+
+    span::before,
+    span::after {
+      height: 100%;
+      transition-delay: 0.3s;
+    }
+
+    &:hover {
+      background: var(--accent);
+
+      color: #f7f7f7;
+    }
+  }
+
+  &::before {
+    right: 0;
+    top: 0;
+  }
+
+  &::after {
+    left: 0;
+    bottom: 0;
+  }
+
+  &:active {
+    transform: translateY(2px);
+  }
+}

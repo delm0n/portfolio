@@ -1,0 +1,99 @@
+<template>
+  <header>
+    <div class="header-wrapper">
+      <h1 v-html="getAboutMeTitle ? getAboutMeTitle : 'Заголовок'"></h1>
+      <h2 v-if="getAboutMeSubtitle" v-html="getAboutMeSubtitle"></h2>
+    </div>
+
+    <a
+      v-if="getAboutMeRef"
+      :href="getAboutMeRef"
+      ref="button"
+      class="button"
+      target="__blank"
+      ><span> Связаться со мной</span></a
+    >
+
+    <div class="line-wrapper"><div class="line"></div></div>
+  </header>
+</template>
+
+<script>
+import { mapGetters } from "vuex";
+
+export default {
+  computed: {
+    ...mapGetters(["getAboutMeTitle", "getAboutMeSubtitle", "getAboutMeRef"]),
+  },
+
+  mounted() {
+    this.$nextTick(function () {
+      this.gsap.to(["header .header-wrapper h1", "header .header-wrapper h2"], {
+        duration: 1,
+        delay: 1,
+        opacity: 1,
+        stagger: 0.4,
+      });
+
+      this.gsap.to("header .line-wrapper .line", {
+        duration: 0.8,
+        delay: 0.6,
+        x: 0,
+        onComplete: () => {
+          if (this.getAboutMeRef && this.$refs.button) {
+            this.$refs.button.classList.add("active");
+          }
+        },
+      });
+    });
+  },
+};
+</script>
+
+<style lang="scss">
+header {
+  .header-wrapper {
+    padding: 30px 0 40px;
+
+    @media (max-width: 576px) {
+      padding: 20px 0 30px;
+    }
+  }
+
+  .line-wrapper {
+    overflow: hidden;
+    width: 100%;
+    height: 1px;
+    .line {
+      width: 100%;
+      height: 100%;
+      background-color: var(--text-color);
+      transform: translateX(-100%);
+    }
+  }
+
+  h1 {
+    @include fluidFontSize(18, 42, 320, 1920);
+    color: var(--text-color);
+    margin-bottom: 15px;
+    opacity: 0;
+    transition: $color-transition;
+  }
+
+  h2 {
+    @include fluidFontSize(14, 22, 320, 1920);
+    transition: $color-transition;
+    opacity: 0;
+  }
+
+  .button {
+    @extend %button-secondary;
+
+    margin: 30px 0 40px;
+
+    @media (max-width: 576px) {
+      margin: 20px 0 30px;
+    }
+  }
+}
+</style>

@@ -1,30 +1,43 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <div class="container">
+    <div class="toggle-container">
+      <theme-toggle />
+    </div>
+
+    <nav v-if="!isProd">
+      <router-link to="/">Разработка</router-link> |
+      <router-link to="/landing">Лендинг</router-link>
+    </nav>
+    <router-view />
+  </div>
 </template>
 
+<script>
+import ThemeToggle from "@/UI/ThemeToggle.vue";
+import { mapGetters, mapActions } from "vuex";
+
+export default {
+  computed: {
+    ...mapGetters(["isProd"]),
+  },
+  methods: {
+    ...mapActions(["uploadData"]),
+  },
+  mounted() {
+    this.uploadData();
+  },
+  components: {
+    ThemeToggle,
+  },
+};
+</script>
+
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+@import url("~@/assets/style/main.scss");
 
-nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+.toggle-container {
+  display: flex;
+  justify-content: flex-end;
+  padding: 20px 0;
 }
 </style>
