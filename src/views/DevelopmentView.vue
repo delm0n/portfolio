@@ -2,21 +2,24 @@
   <div>
     <about-me-edit />
     <button-json />
+    <sites-edit />
 
-    <!-- <input-file /> -->
+    <modal-site-edit />
   </div>
 </template>
 
 <script>
 import AboutMeEdit from "@/components/AboutMeEdit.vue";
 import ButtonJson from "@/components/ButtonJson.vue";
-import InputFile from "@/UI/InputFile.vue";
+import SitesEdit from "@/components/SitesEdit.vue";
+import ModalSiteEdit from "@/components/SiteEditModal.vue";
 
 export default {
   components: {
     AboutMeEdit,
     ButtonJson,
-    InputFile,
+    SitesEdit,
+    ModalSiteEdit,
   },
 };
 </script>

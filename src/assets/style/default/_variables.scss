@@ -143,3 +143,27 @@ $color-transition: color 0.2s ease;
     transform: translateY(2px);
   }
 }
+
+%modal {
+  background: #ffffff;
+  border-radius: 3px;
+  display: none;
+  width: 100%;
+
+  .is-close {
+    transition: all 0.4s !important;
+    top: 5px !important;
+    right: 10px !important;
+    color: #323232;
+    width: auto;
+    box-shadow: none;
+
+    svg {
+      filter: none;
+    }
+
+    &:hover {
+      opacity: 0.8 !important;
+    }
+  }
+}

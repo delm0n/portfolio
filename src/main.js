@@ -10,7 +10,7 @@ import ScrollToPlugin from "gsap/ScrollToPlugin";
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 gsap.config({ nullTargetWarn: false });
 
-import LazyLoad from "vanilla-lazyload";
+// import LazyLoad from "vanilla-lazyload";
 
 createApp(App)
   .use(store)
@@ -18,13 +18,17 @@ createApp(App)
   .mixin({
     created: function () {
       this.gsap = gsap;
+      // this.lazyLoad = new LazyLoad();
     },
     mounted: function () {
-      setTimeout(() => {
-        (function () {
-          var lazyLoadInstance = new LazyLoad();
-        })();
-      }, 100);
+      // setTimeout(() => {
+      //   (function () {
+      //     var lazyLoadInstance = new LazyLoad();
+      //   })();
+      // }, 100);
+      // this.$nextTick(() => {
+      //   this.lazyLoad.update();
+      // });
     },
   })
   .mount("#app");

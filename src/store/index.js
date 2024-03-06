@@ -1,5 +1,7 @@
 import { createStore } from "vuex";
-import { aboutMe } from "./aboutMe";
+import { aboutMe } from "./modules/aboutMe";
+import { sites } from "./modules/sites";
+
 import dataJSON from "/public/data.json";
 
 //проверка на undefined
@@ -24,9 +26,14 @@ export default createStore({
         subtitle: getValue(dataJSON.aboutMe.subtitle),
         ref: getValue(dataJSON.aboutMe.ref),
       });
+
+      context.commit("uploadDataSites", {
+        sites: getValue(dataJSON.sites),
+      });
     },
   },
   modules: {
     aboutMe: aboutMe,
+    sites: sites,
   },
 });

@@ -1,5 +1,5 @@
 <template>
-  <header>
+  <header class="about-me">
     <div class="header-wrapper">
       <h1 v-html="getAboutMeTitle ? getAboutMeTitle : 'Заголовок'"></h1>
       <h2 v-if="getAboutMeSubtitle" v-html="getAboutMeSubtitle"></h2>
@@ -14,7 +14,7 @@
       ><span> Связаться со мной</span></a
     >
 
-    <div class="line-wrapper"><div class="line"></div></div>
+    <div class="line-wrapper"><div class="line line-animation"></div></div>
   </header>
 </template>
 
@@ -40,7 +40,7 @@ export default {
         delay: 0.6,
         x: 0,
         onComplete: () => {
-          if (this.getAboutMeRef && this.$refs.button) {
+          if (this.getAboutMeRef && Boolean(this.$refs.button)) {
             this.$refs.button.classList.add("active");
           }
         },
@@ -57,18 +57,6 @@ header {
 
     @media (max-width: 576px) {
       padding: 20px 0 30px;
-    }
-  }
-
-  .line-wrapper {
-    overflow: hidden;
-    width: 100%;
-    height: 1px;
-    .line {
-      width: 100%;
-      height: 100%;
-      background-color: var(--text-color);
-      transform: translateX(-100%);
     }
   }
 

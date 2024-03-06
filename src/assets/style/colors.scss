@@ -7,6 +7,8 @@
 
   --input-background: #fbfbfb;
   --input-background-hover: rgba(238, 238, 238, 0.75);
+
+  --backdrop: rgba(24, 24, 27, 0.52);
 }
 
 [data-dark="true"] {
@@ -16,4 +18,6 @@
 
   --input-background: rgb(32, 32, 32);
   --input-background-hover: rgb(48, 48, 48);
+
+  --backdrop: rgb(144 144 153 / 65%);
 }

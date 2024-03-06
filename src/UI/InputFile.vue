@@ -9,13 +9,16 @@
       v-bind:disabled="!imgsLength"
     />
 
-    <collapse :when="imgsLength">
+    <!-- <collapse :when="imgsLength"> -->
+    <div v-if="imgsLength">
       <div class="drop-zoon__text-wrap">
         <p class="drop-zoon__paragraph">Нажмите, чтобы добавить картинку</p>
       </div>
-    </collapse>
+    </div>
+    <!-- </collapse> -->
 
-    <collapse :when="Boolean(uploadImg.length)" style="width: 100%">
+    <!-- <collapse :when="!imgsLength" style="width: 100%"> -->
+    <div v-else>
       <div class="dropZoon__img-container">
         <div
           v-for="item in uploadImg"
@@ -52,7 +55,8 @@
           </button>
         </div>
       </div>
-    </collapse>
+    </div>
+    <!-- </collapse> -->
   </div>
 </template>
 
@@ -62,20 +66,16 @@ import { Collapse } from "vue-collapsed";
 export default {
   components: { Collapse },
 
-  data() {
-    return {
-      uploadImg: [],
-    };
+  props: {
+    uploadImg: Object,
   },
+
   computed: {
     imgsLength() {
-      if (this.uploadImg.length < 1) {
-        return true;
-      } else {
-        return false;
-      }
+      return this.uploadImg.length < 1;
     },
   },
+
   directives: {
     tabindex: {
       inserted(el) {
@@ -83,14 +83,11 @@ export default {
       },
     },
   },
+
   methods: {
     onFileChange: function (e) {
       if (this.uploadImg.length < 5) {
         let files = e.target.files || e.dataTransfer.files;
-        // if (files[0].size > 512000) {
-        //   alert("Максимальный размер файла 512Кбайт");
-        //   return;
-        // }
         if (!files.length) return;
         this.createImage(files[0]);
         e.target.value = "";
@@ -98,26 +95,22 @@ export default {
         e.preventDefault();
       }
     },
+
     createImage: function (file) {
-      //тип картинки
-      console.log(file.type);
       let reader = new FileReader();
-      let vm = this;
-      reader.onload = function (e) {
-        vm.uploadImg.push({
-          id: Date.now(),
-          name: file.name,
-          size: file.size,
+
+      reader.onload = (e) => {
+        this.$emit("load-image", {
           src: e.target.result,
+          type: file.type,
         });
       };
+
       reader.readAsDataURL(file);
     },
-    deleteImg(deleteId) {
-      let index = this.uploadImg.findIndex((el) => el.id == deleteId);
-      if (index >= 0) {
-        this.uploadImg.splice(index, 1);
-      }
+
+    deleteImg() {
+      this.$emit("delete-image");
     },
   },
 };
@@ -169,7 +162,6 @@ export default {
     display: flex;
     justify-content: center;
     align-items: stretch;
-    margin-top: 5px;
     row-gap: 10px;
     transition: 0.3s all;
 

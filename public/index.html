@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <link rel="icon" href="<%= BASE_URL %>favicon.ico" />
     <script
-      src="<%= BASE_URL %>smoothScroll.min.js"
+      src="<%= BASE_URL %>js/smoothScroll.min.js"
       rel="preload"
       as="script"
     ></script>
@@ -21,6 +21,27 @@
       >
     </noscript>
     <div id="app"></div>
-    <!-- built files will be auto injected -->
+
+    <!-- fancybox -->
+    <script>
+      window.addEventListener("DOMContentLoaded", function (event) {
+        var fancyscc = document.createElement("link");
+        fancyscc.rel = "stylesheet";
+        fancyscc.href =
+          "<%= BASE_URL %>js/apispn.ru_css-min_fancybox-4.min.css";
+        document.head.insertBefore(
+          fancyscc,
+          document.head.childNodes[document.head.childNodes.length - 1]
+            .nextSibling
+        );
+
+        var fancyscript = document.createElement("script");
+        fancyscript.type = "text/javascript";
+        fancyscript.src =
+          "<%= BASE_URL %>js/apispn.ru_js-min_fancybox-4.min.js";
+        document.querySelector("body").appendChild(fancyscript);
+      });
+    </script>
+    <!-- fancybox -->
   </body>
 </html>

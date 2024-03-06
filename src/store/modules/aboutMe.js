@@ -41,7 +41,7 @@ export const aboutMe = {
     },
 
     getAboutMeJson(state) {
-      return JSON.stringify({ aboutMe: state.aboutMe });
+      return { aboutMe: state.aboutMe };
     },
   },
 };

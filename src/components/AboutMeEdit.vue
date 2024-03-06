@@ -39,15 +39,15 @@ export default {
     ]),
 
     updateTitle(e) {
-      this.$store.commit("updateAboutMeTitle", e.target.value);
+      this.updateAboutMeTitle(e.target.value);
     },
 
     updateSubtitle(e) {
-      this.$store.commit("updateAboutMeSubtitle", e.target.value);
+      this.updateAboutMeSubtitle(e.target.value);
     },
 
     updateRef(e) {
-      this.$store.commit("updateAboutMeRef", e.target.value);
+      this.updateAboutMeRef(e.target.value);
     },
   },
 };

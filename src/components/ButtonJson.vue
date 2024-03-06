@@ -7,11 +7,18 @@ import { mapGetters, mapMutations } from "vuex";
 
 export default {
   computed: {
-    ...mapGetters(["getAboutMeJson"]),
+    ...mapGetters(["getAboutMeJson", "getSitesJson"]),
+
+    jsonContent() {
+      return JSON.stringify(
+        Object.assign(this.getAboutMeJson, this.getSitesJson)
+      );
+    },
   },
+
   methods: {
     saveContent() {
-      const blob = new Blob([this.getAboutMeJson], {
+      const blob = new Blob([this.jsonContent], {
         type: "application/json",
       });
       const url = URL.createObjectURL(blob);
