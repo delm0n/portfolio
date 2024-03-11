@@ -75,11 +75,14 @@ export default {
       this.setSiteModal(id);
 
       setTimeout(() => {
-        Fancybox.show([
-          {
-            src: "#modal-site-edit",
-          },
-        ]);
+        Fancybox.show(
+          [
+            {
+              src: "#modal-site-edit",
+            },
+          ],
+          { click: null, dragToClose: false }
+        );
       }, 100);
     },
   },
@@ -95,9 +98,7 @@ export default {
 
   .edit-info-button {
     cursor: pointer;
-    svg path {
-      fill: var(--text-color);
-    }
+    @extend %svg-theme;
   }
 
   &.landing {

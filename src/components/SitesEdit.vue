@@ -110,11 +110,14 @@ export default {
       this.setSiteModal(0);
 
       setTimeout(() => {
-        Fancybox.show([
-          {
-            src: "#modal-site-edit",
-          },
-        ]);
+        Fancybox.show(
+          [
+            {
+              src: "#modal-site-edit",
+            },
+          ],
+          { click: null, dragToClose: false }
+        );
       }, 100);
     },
 

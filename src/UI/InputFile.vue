@@ -9,15 +9,12 @@
       v-bind:disabled="!imgsLength"
     />
 
-    <!-- <collapse :when="imgsLength"> -->
     <div v-if="imgsLength">
       <div class="drop-zoon__text-wrap">
         <p class="drop-zoon__paragraph">Нажмите, чтобы добавить картинку</p>
       </div>
     </div>
-    <!-- </collapse> -->
 
-    <!-- <collapse :when="!imgsLength" style="width: 100%"> -->
     <div v-else>
       <div class="dropZoon__img-container">
         <div
@@ -56,7 +53,6 @@
         </div>
       </div>
     </div>
-    <!-- </collapse> -->
   </div>
 </template>
 
@@ -175,7 +171,7 @@ export default {
     display: flex;
     align-items: center;
     width: 100%;
-    background: rgba(0, 0, 0, 0.1);
+    padding: 20px;
 
     img {
       width: 100%;
@@ -185,17 +181,16 @@ export default {
 
     button {
       position: absolute;
-      top: 5px;
-      right: 5px;
+      top: 25px;
+      right: 25px;
       display: flex;
       align-items: center;
       justify-content: center;
       width: 15px;
       height: 15px;
-      background-color: #bbbbbb;
+      background-color: #fbfbfb;
       color: #1e1e1e;
       opacity: 0.6;
-      border-radius: 3px;
       cursor: pointer;
       transition: 0.3s all;
 

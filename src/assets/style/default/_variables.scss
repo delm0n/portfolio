@@ -154,9 +154,10 @@ $color-transition: color 0.2s ease;
     transition: all 0.4s !important;
     top: 5px !important;
     right: 10px !important;
-    color: #323232;
+    color: var(--text-color);
     width: auto;
     box-shadow: none;
+    display: none !important;
 
     svg {
       filter: none;
@@ -165,5 +166,12 @@ $color-transition: color 0.2s ease;
     &:hover {
       opacity: 0.8 !important;
     }
+  }
+}
+
+%svg-theme {
+  svg path {
+    fill: var(--text-color);
+    stroke: var(--text-color);
   }
 }

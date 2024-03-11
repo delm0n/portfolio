@@ -3,10 +3,15 @@ let modalDefault = {
   name: "",
   descr: "",
 
+  link: "",
+  page: "",
+
   img: {
     src: "",
     type: "",
   },
+
+  keywords: [],
 };
 
 export const sites = {
@@ -38,6 +43,22 @@ export const sites = {
       state.siteModal.name = name;
     },
 
+    setSiteModalLink(state, link) {
+      state.siteModal.link = link;
+    },
+
+    setSiteModalPage(state, page) {
+      state.siteModal.page = page;
+    },
+
+    removeSiteModalKeywords(state, index) {
+      state.siteModal.keywords.splice(index, 1);
+    },
+
+    addSiteModalKeywords(state, keywords) {
+      state.siteModal.keywords.push(keywords);
+    },
+
     setSiteModalDescr(state, descr) {
       state.siteModal.descr = descr;
     },
@@ -56,16 +77,9 @@ export const sites = {
     },
 
     setSite(state, id) {
-      // state.sites.find((el) => el.id == id) =
-
-      console.log(state.sites.find((el) => el.id == id));
-      console.log(state.siteModal);
-
-      console.log(
-        Object.assign(
-          state.sites.find((el) => el.id == id),
-          state.siteModal
-        )
+      Object.assign(
+        state.sites.find((el) => el.id == id),
+        state.siteModal
       );
     },
   },
@@ -84,6 +98,18 @@ export const sites = {
 
     getSiteModalName(state) {
       return state.siteModal.name;
+    },
+
+    getSiteModalLink(state) {
+      return state.siteModal.link;
+    },
+
+    getSiteModalPage(state) {
+      return state.siteModal.page;
+    },
+
+    getSiteModalKeywords(state) {
+      return state.siteModal.keywords;
     },
 
     getSiteModalDescr(state) {
