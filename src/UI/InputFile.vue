@@ -119,7 +119,7 @@ export default {
   flex-direction: column;
   text-align: center;
   aspect-ratio: 1.1 / 1;
-  max-width: 500px;
+  // max-width: 500px;
   width: 100%;
   display: flex;
   position: relative;

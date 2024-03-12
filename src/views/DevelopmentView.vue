@@ -1,10 +1,10 @@
 <template>
   <div>
     <about-me-edit />
-    <button-json />
     <sites-edit />
 
     <modal-site-edit />
+    <button-json />
   </div>
 </template>
 
@@ -23,3 +23,5 @@ export default {
   },
 };
 </script>
+
+

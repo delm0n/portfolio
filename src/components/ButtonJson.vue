@@ -37,6 +37,6 @@ export default {
 <style lang="scss" scoped>
 .button {
   @extend %button-main;
-  margin-top: 20px;
+  margin: 20px auto;
 }
 </style>

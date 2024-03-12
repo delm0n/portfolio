@@ -108,43 +108,11 @@ export default {
 
 <style lang="scss">
 .keywords {
-  label {
-    gap: 0px !important;
-  }
-
-  .input-wrapper {
-    display: flex;
-    align-items: stretch;
-
-    .input-container {
-      flex-grow: 1;
-    }
-
-    .add-keyword {
-      background: var(--input-background);
-      border: 1px solid #bbbbbb;
-      border-left: none;
-      width: 55px;
-      aspect-ratio: 1/1;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: 0.2s all;
-
-      &:hover {
-        background: var(--input-background-hover);
-      }
-
-      @extend %svg-theme;
-    }
-  }
-
   &-wrapper {
     display: flex;
     flex-wrap: wrap;
     gap: 5px 14px;
-    padding: 8px 0 18px;
+    padding: 8px 0 10px;
 
     .keyword-item {
       display: flex;
@@ -168,6 +136,47 @@ export default {
       &:hover {
         svg {
           opacity: 1;
+        }
+      }
+    }
+  }
+
+  label {
+    gap: 0px !important;
+  }
+
+  .input-wrapper {
+    display: flex;
+    align-items: stretch;
+    padding-top: 8px;
+
+    .input-container {
+      flex-grow: 1;
+    }
+
+    .add-keyword {
+      background: var(--input-background);
+      border: 1px solid #bbbbbb;
+      border-left: none;
+      width: 55px;
+      aspect-ratio: 1/1;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: 0.2s all;
+
+      &:hover {
+        background: var(--input-background-hover);
+      }
+
+      @extend %svg-theme;
+
+      @media (max-width: 576px) {
+        width: 39px;
+
+        svg {
+          width: 20px;
         }
       }
     }

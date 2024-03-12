@@ -51,8 +51,9 @@
     width: 85%;
     padding: 0 16px;
     margin: 0 auto;
+    transition: all 0.4s;
 
-    @media (max-width: 768px) {
+    @media (max-width: 1136px) {
       width: 90%;
     }
 
@@ -60,6 +61,16 @@
       padding: 0 20px;
       width: 100%;
       max-width: 475px;
+    }
+  }
+
+  .container-landing {
+    max-width: 1600px;
+    width: 95%;
+
+    @media (max-width: 768px) {
+      width: 100%;
+      max-width: 640px;
     }
   }
 }

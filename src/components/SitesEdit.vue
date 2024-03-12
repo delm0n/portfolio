@@ -76,7 +76,13 @@
         item-key="order"
       >
         <template #item="{ element }">
-          <li class="list-group-item" :key="element.id">
+          <li
+            :class="[
+              'list-group-item',
+              !editOrder ? 'list-group-item--active' : '',
+            ]"
+            :key="element.id"
+          >
             <site-item :showImage="editImage" :site="element" />
           </li>
         </template>
@@ -88,7 +94,7 @@
 <script>
 import { mapGetters, mapMutations } from "vuex";
 import draggable from "vuedraggable";
-import SiteItem from "./SiteItem.vue";
+import SiteItem from "./SiteEditItem.vue";
 
 export default {
   components: {
@@ -161,14 +167,13 @@ export default {
   border-top: 1px solid var(--text-color);
   border-bottom: 1px solid var(--text-color);
 
-  @media (max-width: 992px) {
+  @media (max-width: 991px) {
     margin: 50px 0;
-    padding: 25px 0;
+    padding: 30px 0;
   }
 
   @media (max-width: 576px) {
     margin: 30px 0;
-    padding: 20px 0;
   }
 
   .sites-header {
@@ -207,8 +212,22 @@ export default {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 40px;
+
+    @media (max-width: 991px) {
+      gap: 20px;
+    }
+
+    @media (max-width: 576px) {
+      grid-template-columns: 1fr;
+    }
+
     .list-group-item {
       border: 1px solid var(--input-background-hover);
+      transition: border 0.2s;
+
+      &--active {
+        border: 1px solid #bbbbbb;
+      }
     }
 
     &--active {

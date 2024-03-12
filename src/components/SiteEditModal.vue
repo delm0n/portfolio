@@ -80,7 +80,7 @@
       </div>
       <div class="col">
         <label
-          ><p style="opacity: 0">Загрузить картинку:</p>
+          ><p class="hid">Загрузить картинку:</p>
           <input-file
             @load-image="loadImage"
             @delete-image="deleteImage"
@@ -228,6 +228,10 @@ export default {
   background: var(--background);
   padding: 50px 30px 30px;
 
+  @media (max-width: 576px) {
+    padding: 40px 20px 30px;
+  }
+
   * {
     font-family: "Montserrat", sans-serif;
   }
@@ -259,6 +263,14 @@ export default {
     .input-container {
       @extend %input-container;
     }
+
+    p.hid {
+      opacity: 0;
+
+      @media (max-width: 768px) {
+        display: none;
+      }
+    }
   }
 
   .button {
@@ -266,12 +278,22 @@ export default {
 
     grid-column: 1/3;
     margin: 0 auto;
+
+    @media (max-width: 768px) {
+      margin-top: 30px;
+    }
   }
 
   .row {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    gap: 30px;
+
+    @media (max-width: 768px) {
+      display: flex;
+      gap: 20px;
+      flex-direction: column;
+    }
   }
 }
 </style>
