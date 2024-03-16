@@ -12,13 +12,22 @@ function getValue(value) {
 export default createStore({
   state: {
     prod: process.env.NODE_ENV == "production",
+    mobile: window.innerWidth > 769,
   },
   getters: {
     isProd(state) {
       return state.prod;
     },
+
+    getMobile(state) {
+      return state.mobile;
+    },
   },
-  mutations: {},
+  mutations: {
+    setMobile(state, value) {
+      state.mobile = value;
+    },
+  },
   actions: {
     uploadData(context) {
       context.commit("uploadDataAboutMe", {

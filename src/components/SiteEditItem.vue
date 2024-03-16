@@ -4,11 +4,7 @@
       <collapse :when="showImage" class="v-collapse">
         <div
           class="img-wrap"
-          :style="
-            site.img.src
-              ? 'background: url(' + site.img.src + ') center/cover no-repeat'
-              : ''
-          "
+          :style="'background: url(' + background + ') center/cover no-repeat'"
         ></div>
       </collapse>
     </div>
@@ -83,6 +79,16 @@ export default {
       }, 100);
     },
   },
+
+  computed: {
+    background() {
+      return this.site.img.src
+        ? this.site.img.src
+        : "https://api.screenshotone.com/take?access_key=GvK8CmEpP2tCnA&url=" +
+            encodeURI(this.site.page ? this.site.page : this.site.link) +
+            "&full_page=false&viewport_width=1920&viewport_height=1280&device_scale_factor=1&format=jpg&image_quality=10&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=true&cache=true&cache_ttl=14400&cache_key=1&delay=0&timeout=60";
+    },
+  },
 };
 </script>
 
@@ -100,7 +106,7 @@ export default {
 
   &__img .img-wrap {
     width: 100%;
-    aspect-ratio: 10/7;
+    aspect-ratio: 1920/1200;
     background: var(--input-background);
     transition: all 0.3s;
     background-size: cover;

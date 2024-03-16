@@ -19,7 +19,7 @@
 
 <script>
 import ThemeToggle from "@/UI/ThemeToggle.vue";
-import { mapGetters, mapActions } from "vuex";
+import { mapGetters, mapActions, mapMutations } from "vuex";
 
 export default {
   computed: {
@@ -30,11 +30,23 @@ export default {
   },
   methods: {
     ...mapActions(["uploadData"]),
+
+    ...mapMutations(["setMobile"]),
   },
   mounted() {
     this.uploadData();
 
-    console.log(this.isLanding);
+    const windowbreakpoint = window.matchMedia("(max-width: 768px)");
+    const breakpointChecker = () => {
+      if (!windowbreakpoint.matches) {
+        this.setMobile(false);
+      } else {
+        this.setMobile(true);
+      }
+    };
+
+    windowbreakpoint.addListener(breakpointChecker);
+    breakpointChecker();
   },
   components: {
     ThemeToggle,

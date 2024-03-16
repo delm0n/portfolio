@@ -35,7 +35,7 @@ export default {
         stagger: 0.4,
       });
 
-      this.gsap.to("header .line-wrapper .line", {
+      this.gsap.to("header .line-wrapper .line-animation", {
         duration: 0.8,
         delay: 0.6,
         x: 0,

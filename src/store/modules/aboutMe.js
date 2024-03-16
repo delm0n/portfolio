@@ -24,7 +24,11 @@ export const aboutMe = {
     },
 
     updateAboutMeRef(state, value) {
-      state.aboutMe.ref = value;
+      if (!value.match(/^[a-zA-Z]+:\/\//) && value.length > 9) {
+        value = "https://" + value;
+      }
+
+      state.aboutMe.ref = value.replace(/\s+/g, "");
     },
   },
   getters: {

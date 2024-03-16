@@ -11,6 +11,8 @@ let modalDefault = {
     type: "",
   },
 
+  path: "",
+
   keywords: [],
 };
 
@@ -25,6 +27,10 @@ export const sites = {
       if (sites) {
         state.sites = sites;
       }
+    },
+
+    removeSite(state, index) {
+      state.sites.splice(index, 1);
     },
 
     updateSites(state, value) {
@@ -44,11 +50,21 @@ export const sites = {
     },
 
     setSiteModalLink(state, link) {
-      state.siteModal.link = link;
+      if (!link.match(/^[a-zA-Z]+:\/\//) && link.length > 9) {
+        link = "https://" + link;
+      }
+      state.siteModal.link = link.replace(/\s+/g, "");
     },
 
     setSiteModalPage(state, page) {
-      state.siteModal.page = page;
+      if (!page.match(/^[a-zA-Z]+:\/\//) && page.length > 9) {
+        page = "https://" + page;
+      }
+      state.siteModal.page = page.replace(/\s+/g, "");
+    },
+
+    setSiteModalPath(state, path) {
+      state.siteModal.path = path.replace(/\s+/g, "");
     },
 
     removeSiteModalKeywords(state, index) {
@@ -69,8 +85,6 @@ export const sites = {
     },
 
     setSiteModal(state, id) {
-      console.log(Boolean(id));
-      console.log(modalDefault);
       state.siteModal = Boolean(id)
         ? JSON.parse(JSON.stringify(state.sites.find((el) => el.id == id)))
         : JSON.parse(JSON.stringify(modalDefault));
@@ -106,6 +120,10 @@ export const sites = {
 
     getSiteModalPage(state) {
       return state.siteModal.page;
+    },
+
+    getSiteModalPath(state) {
+      return state.siteModal.path;
     },
 
     getSiteModalKeywords(state) {

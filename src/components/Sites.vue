@@ -3,17 +3,19 @@
     <div class="sites-wrapper">
       <div class="sites-wrapper__col">
         <site-item
+          class="site-animation"
           v-for="(item, index) in sitesCol1"
           :key="index"
           :site="item"
         />
       </div>
       <div
-        v-if="!mobile"
+        v-if="!getMobile"
         :style="'margin-top: ' + mt"
         class="sites-wrapper__col"
       >
         <site-item
+          class="site-animation"
           v-for="(item, index) in sitesCol2"
           :key="index"
           :site="item"
@@ -26,6 +28,7 @@
 <script>
 import { mapGetters } from "vuex";
 import SiteItem from "./SiteItem.vue";
+import ScrollTrigger from "gsap/ScrollTrigger";
 
 export default {
   components: { SiteItem },
@@ -33,15 +36,14 @@ export default {
   data() {
     return {
       mt: "0",
-      mobile: window.innerWidth < 769,
     };
   },
 
   computed: {
-    ...mapGetters(["getSites", "isProd"]),
+    ...mapGetters(["getSites", "isProd", "getMobile"]),
 
     sitesCol1() {
-      if (this.mobile) {
+      if (this.getMobile) {
         return this.getSites;
       } else {
         return this.getSites.reduce(function (acc, item, index) {
@@ -61,33 +63,41 @@ export default {
 
   methods: {
     getMt() {
-      if (this.$route.name == "landing" || this.isProd) {
-        this.mt =
-          "calc(" +
-          document.querySelector("section.sites .site-item").clientHeight +
-          "px / " +
-          2 +
-          ")";
+      let sites = document.querySelector("section.sites .site-animation");
+
+      if ((this.$route.name == "landing" || this.isProd) && sites) {
+        this.mt = "calc(" + sites.clientHeight + "px / " + 2 + ")";
       }
     },
   },
 
   mounted() {
-    const windowbreakpoint = window.matchMedia("(max-width: 768px)");
-    const breakpointChecker = () => {
-      if (!windowbreakpoint.matches) {
-        this.mobile = false;
-      } else {
-        this.mobile = true;
-      }
-    };
-    windowbreakpoint.addListener(breakpointChecker);
-    breakpointChecker();
-
+    //margin
     addEventListener("resize", () => {
-      !this.mobile ? this.getMt() : "";
+      !this.getMobile ? this.getMt() : "";
     });
-    !this.mobile ? this.getMt() : "";
+    !this.getMobile ? this.getMt() : "";
+
+    //animation
+    this.$nextTick(function () {
+      let sites = document.querySelectorAll("section.sites .site-animation");
+
+      sites
+        ? sites.forEach((element, index) => {
+            ScrollTrigger.create({
+              trigger: element,
+              start: "top 75%",
+              animation: this.gsap.from(element, {
+                autoAlpha: 0,
+                y: 150,
+                delay: 0.5,
+                duration: 1.5,
+                ease: "power1.out",
+              }),
+            });
+          })
+        : "";
+    });
   },
 };
 </script>
@@ -112,12 +122,15 @@ export default {
     &__col {
       display: flex;
       flex-direction: column;
-      max-width: 50%;
       width: 100%;
       gap: 50px;
 
       @media (max-width: 1136px) {
         gap: 30px;
+      }
+
+      @media (min-width: 769px) {
+        max-width: 50%;
       }
     }
   }

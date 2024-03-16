@@ -32,7 +32,7 @@
             >О сайте:
             <div class="input-container">
               <textarea
-                rows="4"
+                rows="6"
                 :value="getSiteModal.descr"
                 @input="updateDescr"
               /></div
@@ -77,6 +77,22 @@
             <p class="error-par">Одна из двух ссылок обязательна!</p>
           </collapse>
         </div>
+
+        <div class="input-item">
+          <label
+            >path:
+            <div class="input-container">
+              <input
+                type="text"
+                :value="getSiteModal.path"
+                @input="updatePath"
+              /></div
+          ></label>
+
+          <collapse :when="errors.path">
+            <p class="error-par">Укажите уникальное имя пути!</p>
+          </collapse>
+        </div>
       </div>
       <div class="col">
         <label
@@ -89,9 +105,15 @@
         </label>
       </div>
 
-      <button @click="save()" class="button">
-        {{ isEmpty ? "Добавить" : "Сохранить" }}
-      </button>
+      <div class="buttons-wrapper">
+        <button @click="save()" class="button">
+          {{ isEmpty ? "Добавить" : "Сохранить" }}
+        </button>
+
+        <button v-if="!isEmpty" @click="remove(getSiteModal.id)" class="button">
+          Удалить
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -113,12 +135,13 @@ export default {
         name: false,
         descr: false,
         link: false,
+        path: false,
       },
     };
   },
 
   computed: {
-    ...mapGetters(["getSiteModal"]),
+    ...mapGetters(["getSiteModal", "getSites"]),
 
     isEmpty() {
       return this.getSiteModal.id == "";
@@ -142,6 +165,8 @@ export default {
       "setSiteModalId",
       "removeSiteModalKeywords",
       "addSiteModalKeywords",
+      "removeSite",
+      "setSiteModalPath",
     ]),
 
     loadImage(img) {
@@ -167,7 +192,25 @@ export default {
         this.errors.link = true;
       }
 
-      if (!this.errors.link && !this.errors.descr && !this.errors.name) {
+      if (this.getSiteModal.path == "") {
+        this.errors.path = true;
+      } else {
+        if (
+          Boolean(
+            this.getSites.find((el) => el.path == this.getSiteModal.path)
+          ) &&
+          this.isEmpty
+        ) {
+          this.errors.path = true;
+        }
+      }
+
+      if (
+        !this.errors.link &&
+        !this.errors.descr &&
+        !this.errors.name &&
+        !this.errors.path
+      ) {
         if (this.isEmpty) {
           this.setSiteModalId(this.uuidv4());
           this.addSite(this.getSiteModal);
@@ -177,6 +220,11 @@ export default {
         }
         this.closeModal();
       }
+    },
+
+    remove(index) {
+      this.removeSite(index);
+      this.closeModal();
     },
 
     updateName(e) {
@@ -193,6 +241,11 @@ export default {
     updatePage(e) {
       this.errors.link = false;
       this.setSiteModalPage(e.target.value);
+    },
+
+    updatePath(e) {
+      this.errors.path = false;
+      this.setSiteModalPath(e.target.value);
     },
 
     updateLink(e) {
@@ -273,14 +326,21 @@ export default {
     }
   }
 
-  .button {
-    @extend %button-main;
-
+  .buttons-wrapper {
     grid-column: 1/3;
     margin: 0 auto;
 
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-evenly;
+
     @media (max-width: 768px) {
       margin-top: 30px;
+    }
+
+    .button {
+      @extend %button-main;
     }
   }
 
