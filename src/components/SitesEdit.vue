@@ -224,6 +224,7 @@ export default {
     .list-group-item {
       border: 1px solid var(--input-background-hover);
       transition: border 0.2s;
+      background: var(--background-power);
 
       &--active {
         border: 1px solid #bbbbbb;

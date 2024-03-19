@@ -104,10 +104,18 @@ export default {
 
 <style lang="scss">
 .sites {
-  padding: 50px 0;
+  margin: 50px 0 0;
+  padding: 50px 0 0;
+  border-top: 2px solid var(--text-color);
+  overflow: hidden;
 
   @media (max-width: 991px) {
+    margin: 50px 0;
     padding: 30px 0;
+  }
+
+  @media (max-width: 576px) {
+    margin: 30px 0;
   }
 
   .sites-wrapper {

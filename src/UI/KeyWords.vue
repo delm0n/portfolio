@@ -89,9 +89,15 @@ export default {
     },
 
     addKeyword() {
-      if (this.key.length > 2) {
+      if (this.key.trim().length > 2) {
         if (this.checkExist()) {
-          this.$emit("add-keyword", this.key);
+          let key = this.key.trim();
+
+          this.$emit(
+            "add-keyword",
+            key[0].toUpperCase() + key.slice(1).toLowerCase()
+          );
+
           this.key = "";
         } else {
           this.errorKey = true;

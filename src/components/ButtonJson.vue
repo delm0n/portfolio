@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations } from "vuex";
+import { mapGetters } from "vuex";
 
 export default {
   computed: {
@@ -37,6 +37,6 @@ export default {
 <style lang="scss" scoped>
 .button {
   @extend %button-main;
-  margin: 20px auto;
+  margin: 20px auto 60px;
 }
 </style>

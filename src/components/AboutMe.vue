@@ -13,8 +13,6 @@
       target="__blank"
       ><span> Связаться со мной</span></a
     >
-
-    <div class="line-wrapper"><div class="line line-animation"></div></div>
   </header>
 </template>
 
@@ -35,10 +33,9 @@ export default {
         stagger: 0.4,
       });
 
-      this.gsap.to("header .line-wrapper .line-animation", {
+      this.gsap.to("header", {
         duration: 0.8,
         delay: 0.6,
-        x: 0,
         onComplete: () => {
           if (this.getAboutMeRef && Boolean(this.$refs.button)) {
             this.$refs.button.classList.add("active");

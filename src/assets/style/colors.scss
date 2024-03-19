@@ -1,12 +1,14 @@
 :root {
   color-scheme: light;
-  --background: #fff;
+  --background: rgb(251, 251, 251);
+  --background-power: #fff;
+
   --text-color: #161718;
 
   --accent: #f4576d;
 
-  --input-background: #fbfbfb;
-  --input-background-hover: rgba(238, 238, 238, 0.75);
+  --input-background: #fff;
+  --input-background-hover: rgba(238, 238, 238, 0.6);
 
   --backdrop: rgba(24, 24, 27, 0.52);
 }
@@ -14,6 +16,8 @@
 [data-dark="true"] {
   color-scheme: dark;
   --background: #121212;
+  --background-power: #000;
+
   --text-color: #f7f7f7;
 
   --input-background: rgb(32, 32, 32);
