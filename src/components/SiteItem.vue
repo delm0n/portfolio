@@ -67,7 +67,8 @@ export default {
     .site-keywords {
       transition: all 0.4s;
       opacity: 0;
-      @include fluidFontSize(16, 20, 320, 1920);
+      @include fluidFontSize(14, 16, 320, 1920);
+
       font-weight: 400;
       color: var(--text-color);
       margin-top: 10px;
@@ -80,7 +81,7 @@ export default {
     }
 
     .site-keywords {
-      opacity: 1;
+      opacity: 0.8;
     }
   }
 }

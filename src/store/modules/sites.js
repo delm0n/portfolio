@@ -19,6 +19,7 @@ let modalDefault = {
 export const sites = {
   state: () => ({
     sites: [],
+    keyFilter: "",
 
     siteModal: JSON.parse(JSON.stringify(modalDefault)),
   }),
@@ -96,10 +97,28 @@ export const sites = {
         state.siteModal
       );
     },
+
+    setKeyFilter(state, value) {
+      if (state.keyFilter == value) {
+        state.keyFilter = "";
+      } else {
+        state.keyFilter = value;
+      }
+    },
   },
   getters: {
     getSites(state) {
       return state.sites;
+    },
+
+    getSitesView(state) {
+      return state.keyFilter
+        ? state.sites.filter((el) => el.keywords.includes(state.keyFilter))
+        : state.sites;
+    },
+
+    getKeyFilter(state) {
+      return state.keyFilter;
     },
 
     getSitesCount(state) {

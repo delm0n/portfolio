@@ -33,9 +33,10 @@ export default {
         stagger: 0.4,
       });
 
-      this.gsap.to("header", {
-        duration: 0.8,
+      this.gsap.to(".keyword-filter", {
+        duration: 1,
         delay: 0.6,
+        opacity: 1,
         onComplete: () => {
           if (this.getAboutMeRef && Boolean(this.$refs.button)) {
             this.$refs.button.classList.add("active");

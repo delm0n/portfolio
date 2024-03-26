@@ -1,5 +1,6 @@
 <template>
   <section class="sites">
+    <keyword-sort class="keywords-wrapper" />
     <div class="sites-wrapper">
       <div class="sites-wrapper__col">
         <site-item
@@ -29,9 +30,10 @@
 import { mapGetters } from "vuex";
 import SiteItem from "./SiteItem.vue";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import KeywordSort from "./KeywordFilter.vue";
 
 export default {
-  components: { SiteItem },
+  components: { SiteItem, KeywordSort },
 
   data() {
     return {
@@ -40,13 +42,13 @@ export default {
   },
 
   computed: {
-    ...mapGetters(["getSites", "isProd", "getMobile"]),
+    ...mapGetters(["getSitesView", "isProd", "getMobile"]),
 
     sitesCol1() {
       if (this.getMobile) {
-        return this.getSites;
+        return this.getSitesView;
       } else {
-        return this.getSites.reduce(function (acc, item, index) {
+        return this.getSitesView.reduce(function (acc, item, index) {
           index % 2 == 0 ? acc.push(item) : "";
           return acc;
         }, []);
@@ -54,7 +56,7 @@ export default {
     },
 
     sitesCol2() {
-      return this.getSites.reduce(function (acc, item, index) {
+      return this.getSitesView.reduce(function (acc, item, index) {
         index % 2 != 0 ? acc.push(item) : "";
         return acc;
       }, []);
@@ -105,17 +107,24 @@ export default {
 <style lang="scss">
 .sites {
   margin: 50px 0 0;
-  padding: 50px 0 0;
-  border-top: 2px solid var(--text-color);
+  padding: 25px 0 0;
   overflow: hidden;
+  border-top: 2px solid var(--text-color);
 
   @media (max-width: 991px) {
     margin: 50px 0;
-    padding: 30px 0;
+    padding: 15px 0;
   }
 
   @media (max-width: 576px) {
     margin: 30px 0;
+  }
+
+  .keywords-wrapper {
+    padding-bottom: 50px;
+    @media (max-width: 991px) {
+      padding-bottom: 30px;
+    }
   }
 
   .sites-wrapper {
@@ -131,14 +140,18 @@ export default {
       display: flex;
       flex-direction: column;
       width: 100%;
-      gap: 50px;
+      gap: 100px;
 
       @media (max-width: 1136px) {
-        gap: 30px;
+        gap: 70px;
       }
 
       @media (min-width: 769px) {
         max-width: 50%;
+      }
+
+      .site-animation {
+        will-change: auto;
       }
     }
   }

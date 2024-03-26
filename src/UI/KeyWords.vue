@@ -36,7 +36,12 @@
 
       <div class="input-wrapper">
         <div class="input-container">
-          <input type="text" v-model="key" @input="updateKey" />
+          <input
+            type="text"
+            v-model="key"
+            @keyup.enter="addKeyword"
+            @input="updateKey"
+          />
         </div>
         <div @click="addKeyword" class="add-keyword">
           <svg
