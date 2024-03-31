@@ -26,23 +26,35 @@ export default {
 
   mounted() {
     this.$nextTick(function () {
-      this.gsap.to(["header .header-wrapper h1", "header .header-wrapper h2"], {
-        duration: 1,
-        delay: 1,
-        opacity: 1,
-        stagger: 0.4,
-      });
-
-      this.gsap.to(".keyword-filter", {
-        duration: 1,
-        delay: 0.6,
-        opacity: 1,
-        onComplete: () => {
-          if (this.getAboutMeRef && Boolean(this.$refs.button)) {
-            this.$refs.button.classList.add("active");
-          }
+      this.gsap.fromTo(
+        ["header .header-wrapper h1", "header .header-wrapper h2"],
+        {
+          opacity: 0,
         },
-      });
+        {
+          duration: 1,
+          delay: 1,
+          opacity: 1,
+          stagger: 0.4,
+        }
+      );
+
+      this.gsap.fromTo(
+        ".keyword-filter",
+        {
+          opacity: 0,
+        },
+        {
+          duration: 1,
+          delay: 0.6,
+          opacity: 1,
+          onComplete: () => {
+            if (this.getAboutMeRef && Boolean(this.$refs.button)) {
+              this.$refs.button.classList.add("active");
+            }
+          },
+        }
+      );
     });
   },
 };
@@ -59,26 +71,24 @@ header {
   }
 
   h1 {
-    @include fluidFontSize(18, 42, 320, 1920);
+    @include fluidFontSize(20, 42, 320, 1920);
     color: var(--text-color);
     margin-bottom: 15px;
-    opacity: 0;
-    transition: $color-transition;
+    // opacity: 0;
   }
 
   h2 {
-    @include fluidFontSize(14, 22, 320, 1920);
-    transition: $color-transition;
-    opacity: 0;
+    @include fluidFontSize(16, 22, 320, 1920);
+    // opacity: 0;
   }
 
   .button {
     @extend %button-secondary;
 
-    margin: 30px 0 40px;
+    margin: 30px 0 0;
 
     @media (max-width: 576px) {
-      margin: 20px 0 30px;
+      margin: 20px 0 0;
     }
   }
 }

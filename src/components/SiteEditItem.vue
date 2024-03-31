@@ -2,10 +2,7 @@
   <div class="site-edit-item">
     <div class="site-edit-item__img">
       <collapse :when="showImage" class="v-collapse">
-        <div
-          class="img-wrap"
-          :style="'background: url(' + background + ') center/cover no-repeat'"
-        ></div>
+        <div class="img-wrap" :style="background"></div>
       </collapse>
     </div>
     <div class="site-edit-item__content">
@@ -83,10 +80,8 @@ export default {
   computed: {
     background() {
       return this.site.img.src
-        ? this.site.img.src
-        : "https://api.screenshotone.com/take?access_key=GvK8CmEpP2tCnA&url=" +
-            encodeURI(this.site.page ? this.site.page : this.site.link) +
-            "&full_page=false&viewport_width=1920&viewport_height=1280&device_scale_factor=1&format=jpg&image_quality=10&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=true&cache=true&cache_ttl=14400&cache_key=1&delay=0&timeout=60";
+        ? "background: url(" + this.site.img.src + ") center/cover no-repeat"
+        : "background: rgba(238, 238, 238, 0.6)";
     },
   },
 };

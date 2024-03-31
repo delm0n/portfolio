@@ -7,11 +7,15 @@ import { mapGetters } from "vuex";
 
 export default {
   computed: {
-    ...mapGetters(["getAboutMeJson", "getSitesJson"]),
+    ...mapGetters(["getAboutMeJson", "getSitesJson", "getResumeJson"]),
 
     jsonContent() {
       return JSON.stringify(
-        Object.assign(this.getAboutMeJson, this.getSitesJson)
+        Object.assign(
+          this.getAboutMeJson,
+          this.getSitesJson,
+          this.getResumeJson
+        )
       );
     },
   },

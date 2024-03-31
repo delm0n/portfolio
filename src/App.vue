@@ -20,6 +20,7 @@
 <script>
 import ThemeToggle from "@/UI/ThemeToggle.vue";
 import { mapGetters, mapActions, mapMutations } from "vuex";
+import "@vuepic/vue-datepicker/dist/main.css";
 
 export default {
   computed: {

@@ -12,8 +12,8 @@
     <div class="row">
       <div class="col">
         <div class="input-item">
-          <label
-            >Название:
+          <label>
+            <span> Название: </span>
             <div class="input-container">
               <input
                 type="text"
@@ -28,8 +28,8 @@
         </div>
 
         <div class="input-item">
-          <label
-            >О сайте:
+          <label>
+            <span> О сайте: </span>
             <div class="input-container">
               <textarea
                 rows="6"
@@ -51,8 +51,8 @@
         />
 
         <div class="input-item">
-          <label
-            >Ссылка на сайт:
+          <label>
+            <span>Ссылка на сайт: </span>
             <div class="input-container">
               <input
                 type="text"
@@ -63,8 +63,8 @@
         </div>
 
         <div class="input-item">
-          <label
-            >Ссылка на github pages:
+          <label>
+            <span> Ссылка на github pages: </span>
             <div class="input-container">
               <input
                 type="text"
@@ -79,8 +79,8 @@
         </div>
 
         <div class="input-item">
-          <label
-            >path:
+          <label>
+            <span>path: </span>
             <div class="input-container">
               <input
                 type="text"
@@ -304,14 +304,11 @@ export default {
   }
 
   label {
-    font-weight: 700;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    width: 100%;
+    @extend %label-container;
 
-    @include fluidFontSize(16, 20, 320, 1920);
-    color: var(--text-color);
+    span {
+      @include fluidFontSize(16, 20, 320, 1920);
+    }
 
     .input-container {
       @extend %input-container;

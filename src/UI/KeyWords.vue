@@ -1,7 +1,7 @@
 <template>
   <div class="keywords">
-    <label
-      >Ключевые слова:
+    <label>
+      <span> Ключевые слова: </span>
 
       <div v-show="keywords.length" class="keywords-wrapper">
         <div

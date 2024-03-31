@@ -29,3 +29,14 @@
 
   --backdrop: rgb(144 144 153 / 35%);
 }
+
+.dp__theme_light,
+.dp__theme_dark {
+  --dp-primary-color: #f4576d !important;
+  --dp-hover-color: rgba(238, 238, 238, 0.6);
+
+  --dp-font-family: "Montserrat", sans-serif;
+  --dp-border-radius: 0;
+  --dp-cell-border-radius: 0;
+  --dp-preview-font-size: 0.7rem;
+}

@@ -1,23 +1,26 @@
 <template>
   <span @click="onClickToggle" class="switch">
     <div
-      :class="['switch-rounded', dark ? 'switch-rounded--active' : '']"
+      :class="['switch-rounded', getTheme ? 'switch-rounded--active' : '']"
     ></div>
   </span>
 </template>
 
 <script>
+import { mapGetters, mapMutations } from "vuex";
+
 export default {
-  data() {
-    return {
-      dark: false,
-    };
+  computed: {
+    ...mapGetters(["getTheme"]),
   },
+
   methods: {
     onClickToggle() {
-      this.dark = !this.dark;
-      document.querySelector("html").dataset.dark = this.dark;
+      this.changeTheme();
+      document.querySelector("html").dataset.dark = this.getTheme;
     },
+
+    ...mapMutations(["changeTheme"]),
   },
 };
 </script>

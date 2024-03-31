@@ -1,11 +1,29 @@
 $color-transition: color 0.2s ease;
 
+%label-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+
+  span {
+    font-weight: 700;
+    // @include fluidFontSize(16, 20, 320, 1920);
+    color: var(--text-color);
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 20px;
+  }
+}
+
 %input-container {
   background: var(--input-background);
   border: 1px solid #bbbbbb;
   border-radius: 0px;
   padding: 16px;
-  transition: 0.2s all;
+  min-height: 58px;
+  cursor: text;
   color: var(--text-color);
   font-size: 18px;
   font-weight: 400;
@@ -13,6 +31,7 @@ $color-transition: color 0.2s ease;
   @media (max-width: 576px) {
     padding: 11px;
     font-size: 14px;
+    min-height: 41px;
   }
 
   input,
@@ -25,6 +44,7 @@ $color-transition: color 0.2s ease;
   }
 
   &:hover {
+    transition: 0.2s all;
     background: var(--input-background-hover);
   }
 }

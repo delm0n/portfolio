@@ -1,13 +1,13 @@
 <template>
   <div class="about-me-edit">
-    <label
-      >Заголовок:
+    <label>
+      <span> Заголовок: </span>
       <div class="input-container">
         <input type="text" :value="getAboutMeTitle" @input="updateTitle" /></div
     ></label>
 
-    <label
-      >Подзаголовок:
+    <label>
+      <span>Подзаголовок:</span>
       <div class="input-container">
         <textarea
           rows="2"
@@ -16,8 +16,8 @@
         /></div
     ></label>
 
-    <label
-      >Ссылка для связи:
+    <label>
+      <span>Ссылка для связи:</span>
       <div class="input-container">
         <input type="text" :value="getAboutMeRef" @input="updateRef" /></div
     ></label>
@@ -56,18 +56,11 @@ export default {
 <style lang="scss">
 .about-me-edit {
   label {
-    font-weight: 700;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    width: 100%;
+    @extend %label-container;
 
-    &:not(:last-child) {
-      margin-bottom: 20px;
+    span {
+      @include fluidFontSize(16, 20, 320, 1920);
     }
-
-    @include fluidFontSize(16, 20, 320, 1920);
-    color: var(--text-color);
 
     .input-container {
       @extend %input-container;

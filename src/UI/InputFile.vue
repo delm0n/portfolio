@@ -31,23 +31,17 @@
           <button v-on:click.prevent="deleteImg(item.id)">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="8"
-              height="8"
-              viewBox="0 0 8 8"
-              fill="none"
+              viewBox="0 0 32 32"
+              aria-hidden="true"
             >
               <path
-                d="M1 1L7.2 7.2"
-                stroke="#1E1E1E"
-                stroke-width="1.45"
-                stroke-linecap="round"
-              />
+                d="M23.057 7.057l-16 16c-0.52 0.52-0.52 1.365 0 1.885s1.365 0.52 1.885 0l16-16c0.52-0.52 0.52-1.365 0-1.885s-1.365-0.52-1.885 0z"
+                fill="#959595"
+              ></path>
               <path
-                d="M1 7.2L7.2 1"
-                stroke="#1E1E1E"
-                stroke-width="1.45"
-                stroke-linecap="round"
-              />
+                d="M7.057 8.943l16 16c0.52 0.52 1.365 0.52 1.885 0s0.52-1.365 0-1.885l-16-16c-0.52-0.52-1.365-0.52-1.885 0s-0.52 1.365 0 1.885z"
+                fill="#959595"
+              ></path>
             </svg>
           </button>
         </div>
