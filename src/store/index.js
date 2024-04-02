@@ -6,7 +6,7 @@ import dataJSON from "/public/data.json";
 
 //проверка на undefined
 function getValue(value) {
-  return value ? value : "";
+  return !!value ? value : "";
 }
 
 export default createStore({
@@ -52,6 +52,8 @@ export default createStore({
           name: getValue(dataJSON.resume.name),
           city: getValue(dataJSON.resume.city),
           birthday: getValue(dataJSON.resume.birthday),
+          about: getValue(dataJSON.resume.about),
+          works: getValue(dataJSON.resume.works),
         });
       }
 

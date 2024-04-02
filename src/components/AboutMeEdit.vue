@@ -1,5 +1,7 @@
 <template>
   <div class="about-me-edit">
+    <p class="dev-title first">Информация о пользователе</p>
+
     <label>
       <span> Заголовок: </span>
       <div class="input-container">
@@ -10,7 +12,7 @@
       <span>Подзаголовок:</span>
       <div class="input-container">
         <textarea
-          rows="2"
+          rows="3"
           :value="getAboutMeSubtitle"
           @input="updateSubtitle"
         /></div

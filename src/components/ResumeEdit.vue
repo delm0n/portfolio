@@ -16,39 +16,34 @@
       <div class="label">
         <span>Дата рождения:</span>
 
-        <input-date
-          :theme="getTheme"
-          :date="getResumeBirthday"
-          @set-date="setBirthday"
-        />
+        <input-date :date="getResumeBirthday" @set-date="setBirthday" />
       </div>
     </div>
+
+    <label>
+      <span>О себе:</span>
+      <div class="input-container">
+        <textarea rows="3" :value="getResumeAbout" @input="updateAbout" /></div
+    ></label>
+
+    <resume-work />
   </section>
 </template>
 
 <script>
-import InputDate from "@/UI/InputDate.vue";
 import { mapGetters, mapMutations } from "vuex";
-
-// const formatMY = (date) => {
-//   let options = {
-//     month: "long",
-//   };
-
-//   const month = date.toLocaleDateString("ru", options);
-//   const year = date.getFullYear();
-
-//   return `${month[0].toUpperCase() + month.slice(1).toLowerCase()} ${year}`;
-// };
+import ResumeWork from "./ResumeEditWork.vue";
+import InputDate from "@/UI/InputDate.vue";
 
 export default {
-  components: { InputDate },
+  components: { ResumeWork, InputDate },
   computed: {
     ...mapGetters([
       "getResumeName",
       "getResumeCity",
-      "getTheme",
+
       "getResumeBirthday",
+      "getResumeAbout",
     ]),
   },
 
@@ -57,6 +52,7 @@ export default {
       "updateResumeCity",
       "updateResumeName",
       "updateResumeBirthday",
+      "updateResumeAbout",
     ]),
 
     updateCity(e) {
@@ -65,6 +61,10 @@ export default {
 
     updateName(e) {
       this.updateResumeName(e.target.value);
+    },
+
+    updateAbout(e) {
+      this.updateResumeAbout(e.target.value);
     },
 
     setBirthday(value) {
@@ -88,10 +88,12 @@ export default {
 
   div.label,
   label {
-    @extend %label-container;
+    &:not(.checkbox) {
+      @extend %label-container;
 
-    span {
-      @include fluidFontSize(16, 20, 320, 1920);
+      span {
+        @include fluidFontSize(16, 20, 320, 1920);
+      }
     }
   }
 
@@ -99,6 +101,10 @@ export default {
     .input-container {
       @extend %input-container;
     }
+  }
+
+  div.label {
+    margin-bottom: 20px;
   }
 }
 </style>

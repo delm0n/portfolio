@@ -21,15 +21,18 @@ $color-transition: color 0.2s ease;
   background: var(--input-background);
   border: 1px solid #bbbbbb;
   border-radius: 0px;
-  padding: 16px;
   min-height: 58px;
   cursor: text;
   color: var(--text-color);
   font-size: 18px;
   font-weight: 400;
 
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: 1px;
+
   @media (max-width: 576px) {
-    padding: 11px;
     font-size: 14px;
     min-height: 41px;
   }
@@ -41,6 +44,12 @@ $color-transition: color 0.2s ease;
     border: none;
     width: 100%;
     outline: 0 !important;
+    padding: 15px;
+    display: flex;
+
+    @media (max-width: 576px) {
+      padding: 10px;
+    }
   }
 
   &:hover {

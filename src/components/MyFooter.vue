@@ -10,7 +10,12 @@
         ><span>Начать проект</span></a
       >
 
-      <p class="copyright">© {{ getYear }}</p>
+      <p class="copyright">
+        © {{ getYear }}
+        <a href="https://github.com/delm0n" target="__blank"
+          >github.com/delm0n</a
+        >
+      </p>
     </div>
   </footer>
 </template>
@@ -63,6 +68,10 @@ export default {
   .copyright {
     font-weight: 500;
     color: var(--text-color);
+
+    a {
+      color: #bbb;
+    }
   }
 }
 </style>

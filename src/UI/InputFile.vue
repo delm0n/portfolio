@@ -11,7 +11,13 @@
 
     <div v-if="imgsLength">
       <div class="drop-zoon__text-wrap">
-        <p class="drop-zoon__paragraph">Нажмите, чтобы добавить картинку</p>
+        <p class="drop-zoon__paragraph">
+          Нажмите, чтобы добавить картинку
+          <span v-if="!!resolution" style="opacity: 0.6; font-weight: 400">
+            <br />
+            {{ resolution }}
+          </span>
+        </p>
       </div>
     </div>
 
@@ -58,6 +64,7 @@ export default {
 
   props: {
     uploadImg: Object,
+    resolution: String,
   },
 
   computed: {

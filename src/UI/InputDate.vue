@@ -8,7 +8,7 @@
     :format="formatInput"
     cancel-text="Закрыть"
     select-text="Выбрать"
-    :dark="theme"
+    :dark="getTheme"
     position="left"
   >
     <template #input-icon>
@@ -32,11 +32,13 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+import Datepicker from "@vuepic/vue-datepicker";
+
 const formatPreview = (date) => {
   return date.toLocaleDateString("ru");
 };
 
-import Datepicker from "@vuepic/vue-datepicker";
 export default {
   components: {
     Datepicker,
@@ -52,7 +54,6 @@ export default {
     date: {
       required: true,
     },
-    theme: Boolean,
     formatInput: {
       type: Function,
       default: formatPreview,
@@ -67,6 +68,8 @@ export default {
         this.$emit("set-date", v);
       },
     },
+
+    ...mapGetters(["getTheme"]),
   },
 };
 </script>

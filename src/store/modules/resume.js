@@ -4,6 +4,9 @@ export const resume = {
       name: "",
       city: "",
       birthday: null,
+      about: "",
+
+      works: [],
     },
   }),
 
@@ -20,10 +23,37 @@ export const resume = {
       state.resume.birthday = value;
     },
 
-    uploadDataResume(state, { name, city, birthday }) {
-      name ? (state.resume.name = name) : "";
-      city ? (state.resume.city = city) : "";
-      birthday ? (state.resume.birthday = birthday) : "";
+    updateResumeAbout(state, value) {
+      state.resume.about = value;
+    },
+
+    uploadDataResume(state, { name, city, birthday, about, works }) {
+      !!name ? (state.resume.name = name) : "";
+      !!city ? (state.resume.city = city) : "";
+      !!birthday ? (state.resume.birthday = birthday) : "";
+      !!about ? (state.resume.about = about) : "";
+      !!works ? (state.resume.works = works) : "";
+    },
+
+    addResumeWork(state, work) {
+      state.resume.works.unshift(work);
+    },
+
+    updateResumeWorks(state, works) {
+      state.resume.works = works;
+    },
+
+    updateResumeWork(state, work) {
+      let arr_work = state.resume.works.find((el) => el.id == work.id);
+
+      arr_work.dateStart = work.dateStart;
+      arr_work.dateEnd = work.dateEnd;
+      arr_work.name = work.name;
+      arr_work.until = work.until;
+    },
+
+    removeResumeWork(state, id) {
+      state.resume.works = state.resume.works.filter((el) => el.id !== id);
     },
   },
 
@@ -38,6 +68,14 @@ export const resume = {
 
     getResumeBirthday(state) {
       return state.resume.birthday;
+    },
+
+    getResumeAbout(state) {
+      return state.resume.about;
+    },
+
+    getResumeWorks(state) {
+      return state.resume.works;
     },
 
     getResumeJson(state) {

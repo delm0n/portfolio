@@ -8,9 +8,9 @@ export const aboutMe = {
   }),
   mutations: {
     uploadDataAboutMe(state, { title, subtitle, ref }) {
-      title ? (state.aboutMe.title = title) : "";
-      subtitle ? (state.aboutMe.subtitle = subtitle) : "";
-      ref ? (state.aboutMe.ref = ref) : "";
+      !!title ? (state.aboutMe.title = title) : "";
+      !!subtitle ? (state.aboutMe.subtitle = subtitle) : "";
+      !!ref ? (state.aboutMe.ref = ref) : "";
     },
 
     updateAboutMeTitle(state, value) {

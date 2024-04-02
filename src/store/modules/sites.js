@@ -25,9 +25,7 @@ export const sites = {
   }),
   mutations: {
     uploadDataSites(state, { sites }) {
-      if (sites) {
-        state.sites = sites;
-      }
+      !!sites ? (state.sites = sites) : "";
     },
 
     removeSite(state, index) {

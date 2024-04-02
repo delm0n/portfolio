@@ -1,12 +1,15 @@
 <template>
   <header class="about-me">
     <div class="header-wrapper">
-      <h1 v-html="getAboutMeTitle ? getAboutMeTitle : 'Заголовок'"></h1>
-      <h2 v-if="getAboutMeSubtitle" v-html="getAboutMeSubtitle"></h2>
+      <h1 v-html="!!getAboutMeTitle ? getAboutMeTitle : 'Заголовок'"></h1>
+      <h2
+        v-if="!!getAboutMeSubtitle"
+        v-html="getAboutMeSubtitle.replace(/(\r\n|\n|\r)/gm, '<br>')"
+      ></h2>
     </div>
 
     <a
-      v-if="getAboutMeRef"
+      v-if="!!getAboutMeRef"
       :href="getAboutMeRef"
       ref="button"
       class="button"

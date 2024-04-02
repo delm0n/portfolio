@@ -98,6 +98,7 @@
         <label
           ><p class="hid">Загрузить картинку:</p>
           <input-file
+            :resolution="'1920 x 1200'"
             @load-image="loadImage"
             @delete-image="deleteImage"
             :uploadImg="isEmptyImg ? copyUploadImg : [getSiteModal.img]"
@@ -309,6 +310,7 @@ export default {
     span {
       @include fluidFontSize(16, 20, 320, 1920);
     }
+    margin-bottom: 0 !important;
 
     .input-container {
       @extend %input-container;
