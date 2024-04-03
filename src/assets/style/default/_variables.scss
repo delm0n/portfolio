@@ -204,3 +204,16 @@ $color-transition: color 0.2s ease;
     stroke: var(--text-color);
   }
 }
+
+%icon-close {
+  display: block;
+  path {
+    fill: var(--text-color);
+  }
+
+  opacity: 0.6;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}

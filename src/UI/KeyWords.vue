@@ -128,11 +128,12 @@ export default {
     .keyword-item {
       display: flex;
       align-items: center;
-      gap: 4px;
+      gap: 6px;
 
       p {
         font-weight: 400;
         line-height: 1;
+        color: var(--text-color);
       }
 
       @extend %svg-theme;

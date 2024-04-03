@@ -54,6 +54,7 @@ export default createStore({
           birthday: getValue(dataJSON.resume.birthday),
           about: getValue(dataJSON.resume.about),
           works: getValue(dataJSON.resume.works),
+          image: getValue(dataJSON.resume.image),
         });
       }
 

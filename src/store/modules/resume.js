@@ -5,7 +5,7 @@ export const resume = {
       city: "",
       birthday: null,
       about: "",
-
+      image: [],
       works: [],
     },
   }),
@@ -27,12 +27,13 @@ export const resume = {
       state.resume.about = value;
     },
 
-    uploadDataResume(state, { name, city, birthday, about, works }) {
+    uploadDataResume(state, { name, city, birthday, about, works, image }) {
       !!name ? (state.resume.name = name) : "";
       !!city ? (state.resume.city = city) : "";
       !!birthday ? (state.resume.birthday = birthday) : "";
       !!about ? (state.resume.about = about) : "";
       !!works ? (state.resume.works = works) : "";
+      !!image ? (state.resume.image = image) : "";
     },
 
     addResumeWork(state, work) {
@@ -55,6 +56,18 @@ export const resume = {
     removeResumeWork(state, id) {
       state.resume.works = state.resume.works.filter((el) => el.id !== id);
     },
+
+    removeResumeImg(state, index) {
+      state.resume.image.splice(index, 1);
+    },
+
+    setResumeImg(state, { name, src, type }) {
+      state.resume.image.push({
+        name: name,
+        src: src,
+        type: type,
+      });
+    },
   },
 
   getters: {
@@ -76,6 +89,10 @@ export const resume = {
 
     getResumeWorks(state) {
       return state.resume.works;
+    },
+
+    getResumeImg(state) {
+      return state.resume.image;
     },
 
     getResumeJson(state) {

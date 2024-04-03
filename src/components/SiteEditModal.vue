@@ -97,7 +97,7 @@
       <div class="col">
         <label
           ><p class="hid">Загрузить картинку:</p>
-          <input-file
+          <input-file-preview
             :resolution="'1920 x 1200'"
             @load-image="loadImage"
             @delete-image="deleteImage"
@@ -120,14 +120,14 @@
 </template>
 
 <script>
-import InputFile from "@/UI/InputFile.vue";
+import InputFilePreview from "@/UI/InputFilePreview.vue";
 import uuidv4 from "@/mixins/uuidv4";
 import { mapGetters, mapMutations } from "vuex";
 import { Collapse } from "vue-collapsed";
 import KeyWords from "@/UI/KeyWords.vue";
 
 export default {
-  components: { InputFile, Collapse, KeyWords },
+  components: { InputFilePreview, Collapse, KeyWords },
   mixins: [uuidv4],
   data() {
     return {

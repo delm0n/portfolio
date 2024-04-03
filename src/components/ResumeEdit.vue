@@ -15,10 +15,18 @@
 
       <div class="label">
         <span>Дата рождения:</span>
-
         <input-date :date="getResumeBirthday" @set-date="setBirthday" />
       </div>
     </div>
+
+    <input-file-line
+      class="label-avatar"
+      :resolution="'Загрузить аватар <span> (слайдер до 8 фотографий)</span>'"
+      :limit="8"
+      @load-image="loadImage"
+      @delete-image="deleteImage"
+      :uploadImg="getResumeImg"
+    />
 
     <label>
       <span>О себе:</span>
@@ -34,14 +42,15 @@
 import { mapGetters, mapMutations } from "vuex";
 import ResumeWork from "./ResumeEditWork.vue";
 import InputDate from "@/UI/InputDate.vue";
+import InputFileLine from "@/UI/InputFileLine.vue";
 
 export default {
-  components: { ResumeWork, InputDate },
+  components: { ResumeWork, InputDate, InputFileLine },
   computed: {
     ...mapGetters([
       "getResumeName",
       "getResumeCity",
-
+      "getResumeImg",
       "getResumeBirthday",
       "getResumeAbout",
     ]),
@@ -53,6 +62,8 @@ export default {
       "updateResumeName",
       "updateResumeBirthday",
       "updateResumeAbout",
+      "setResumeImg",
+      "removeResumeImg",
     ]),
 
     updateCity(e) {
@@ -69,6 +80,14 @@ export default {
 
     setBirthday(value) {
       this.updateResumeBirthday(value);
+    },
+
+    loadImage(img) {
+      this.setResumeImg({ name: img.name, src: img.src, type: img.type });
+    },
+
+    deleteImage(index) {
+      this.removeResumeImg(index);
     },
   },
 };
@@ -103,8 +122,13 @@ export default {
     }
   }
 
-  div.label {
+  div.label,
+  .label-avatar {
     margin-bottom: 20px;
+
+    .resolution {
+      @include fluidFontSize(16, 20, 320, 1920);
+    }
   }
 }
 </style>

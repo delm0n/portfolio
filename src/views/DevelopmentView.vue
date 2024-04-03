@@ -17,6 +17,9 @@ import SitesEdit from "@/components/SitesEdit.vue";
 import ModalSiteEdit from "@/components/SiteEditModal.vue";
 import ResumeEdit from "@/components/ResumeEdit.vue";
 
+import "swiper/scss";
+import "swiper/scss/effect-fade";
+
 export default {
   components: {
     AboutMeEdit,

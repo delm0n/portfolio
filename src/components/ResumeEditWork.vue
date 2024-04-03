@@ -324,18 +324,23 @@ export default {
         position: relative;
         z-index: 2;
         display: block;
-        // padding: 10px;
-        opacity: 0.6;
+        transition: 0.3s all;
+
         &:nth-child(1) {
           opacity: 0.8;
 
           path {
             stroke: var(--text-color);
+            fill: var(--text-color);
+          }
+
+          &:hover {
+            opacity: 1;
           }
         }
 
-        path {
-          fill: var(--text-color);
+        &:nth-child(2) {
+          @extend %icon-close;
         }
       }
     }
