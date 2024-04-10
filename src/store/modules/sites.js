@@ -12,7 +12,7 @@ let modalDefault = {
   },
 
   path: "",
-
+  imagesContent: [],
   keywords: [],
 };
 
@@ -94,6 +94,22 @@ export const sites = {
         state.sites.find((el) => el.id == id),
         state.siteModal
       );
+      // console.log(state.siteModal);
+      // console.log(state.sites.find((el) => el.id == id));
+      //подебажить!!!
+      // !!state.sites.find((el) => el.id == id) ? state.sites.find((el) => el.id == id) = JSON.parse(JSON.stringify( state.siteModal)) : "";
+    },
+
+    addSiteModalImageContent(state, { name, src, type }) {
+      state.siteModal.imagesContent.push({
+        name: name,
+        src: src,
+        type: type,
+      });
+    },
+
+    removeSiteModalImageContent(state, index) {
+      state.siteModal.imagesContent.splice(index, 1);
     },
 
     setKeyFilter(state, value) {
@@ -149,6 +165,12 @@ export const sites = {
 
     getSiteModalDescr(state) {
       return state.siteModal.descr;
+    },
+
+    getSiteModalImages(state) {
+      return !!state.siteModal.imagesContent
+        ? state.siteModal.imagesContent
+        : [];
     },
 
     getSitesJson(state) {

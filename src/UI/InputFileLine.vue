@@ -106,6 +106,7 @@ export default {
     height: 100%;
     opacity: 0;
     top: 0;
+    left: 0;
     cursor: pointer !important;
   }
 

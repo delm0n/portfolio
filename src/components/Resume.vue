@@ -320,6 +320,7 @@ export default {
 
       .collapse-button {
         margin-top: 20px;
+        cursor: pointer;
         text-decoration: underline;
       }
     }

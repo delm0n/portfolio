@@ -94,6 +94,7 @@
           </collapse>
         </div>
       </div>
+
       <div class="col">
         <label
           ><p class="hid">Загрузить картинку:</p>
@@ -104,6 +105,15 @@
             :uploadImg="isEmptyImg ? copyUploadImg : [getSiteModal.img]"
           />
         </label>
+
+        <input-file-line
+          class="label-images"
+          :resolution="'Нажмите, чтобы загрузить картинки на страницу сайта</span>'"
+          :limit="16"
+          @load-image="loadImageContent"
+          @delete-image="deleteImageContent"
+          :uploadImg="getSiteModalImages"
+        />
       </div>
 
       <div class="buttons-wrapper">
@@ -125,9 +135,10 @@ import uuidv4 from "@/mixins/uuidv4";
 import { mapGetters, mapMutations } from "vuex";
 import { Collapse } from "vue-collapsed";
 import KeyWords from "@/UI/KeyWords.vue";
+import InputFileLine from "@/UI/InputFileLine.vue";
 
 export default {
-  components: { InputFilePreview, Collapse, KeyWords },
+  components: { InputFilePreview, Collapse, KeyWords, InputFileLine },
   mixins: [uuidv4],
   data() {
     return {
@@ -142,7 +153,7 @@ export default {
   },
 
   computed: {
-    ...mapGetters(["getSiteModal", "getSites"]),
+    ...mapGetters(["getSiteModal", "getSites", "getSiteModalImages"]),
 
     isEmpty() {
       return this.getSiteModal.id == "";
@@ -168,7 +179,21 @@ export default {
       "addSiteModalKeywords",
       "removeSite",
       "setSiteModalPath",
+      "addSiteModalImageContent",
+      "removeSiteModalImageContent",
     ]),
+
+    loadImageContent(img) {
+      this.addSiteModalImageContent({
+        name: img.name,
+        src: img.src,
+        type: img.type,
+      });
+    },
+
+    deleteImageContent(index) {
+      this.removeSiteModalImageContent(index);
+    },
 
     loadImage(img) {
       this.copyUploadImg.push(img);
@@ -322,6 +347,14 @@ export default {
       @media (max-width: 768px) {
         display: none;
       }
+    }
+  }
+
+  .label-images {
+    margin-top: 20px;
+
+    .resolution {
+      @include fluidFontSize(16, 20, 320, 1920);
     }
   }
 
