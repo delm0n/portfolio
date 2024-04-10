@@ -35,6 +35,7 @@
     ></label>
 
     <resume-work />
+    <resume-education />
   </section>
 </template>
 
@@ -43,9 +44,10 @@ import { mapGetters, mapMutations } from "vuex";
 import ResumeWork from "./ResumeEditWork.vue";
 import InputDate from "@/UI/InputDate.vue";
 import InputFileLine from "@/UI/InputFileLine.vue";
+import ResumeEducation from "./ResumeEditEducation.vue";
 
 export default {
-  components: { ResumeWork, InputDate, InputFileLine },
+  components: { ResumeWork, InputDate, InputFileLine, ResumeEducation },
   computed: {
     ...mapGetters([
       "getResumeName",

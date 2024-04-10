@@ -328,7 +328,7 @@ export default {
   .buttons-wrapper {
     grid-column: 1/3;
     margin: 0 auto;
-
+    gap: 20px;
     display: flex;
     flex-wrap: wrap;
     width: 100%;

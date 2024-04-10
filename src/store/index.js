@@ -55,6 +55,7 @@ export default createStore({
           about: getValue(dataJSON.resume.about),
           works: getValue(dataJSON.resume.works),
           image: getValue(dataJSON.resume.image),
+          educations: getValue(dataJSON.resume.educations),
         });
       }
 

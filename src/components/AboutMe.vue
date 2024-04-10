@@ -39,18 +39,6 @@ export default {
           delay: 1,
           opacity: 1,
           stagger: 0.4,
-        }
-      );
-
-      this.gsap.fromTo(
-        ".keyword-filter",
-        {
-          opacity: 0,
-        },
-        {
-          duration: 1,
-          delay: 0.6,
-          opacity: 1,
           onComplete: () => {
             if (this.getAboutMeRef && Boolean(this.$refs.button)) {
               this.$refs.button.classList.add("active");
@@ -58,6 +46,23 @@ export default {
           },
         }
       );
+
+      // this.gsap.fromTo(
+      //   ".keyword-filter",
+      //   {
+      //     opacity: 0,
+      //   },
+      //   {
+      //     duration: 1,
+      //     delay: 0.6,
+      //     opacity: 1,
+      //     onComplete: () => {
+      //       if (this.getAboutMeRef && Boolean(this.$refs.button)) {
+      //         this.$refs.button.classList.add("active");
+      //       }
+      //     },
+      //   }
+      // );
     });
   },
 };
@@ -77,12 +82,11 @@ header {
     @include fluidFontSize(20, 42, 320, 1920);
     color: var(--text-color);
     margin-bottom: 15px;
-    // opacity: 0;
   }
 
   h2 {
     @include fluidFontSize(16, 22, 320, 1920);
-    // opacity: 0;
+    color: var(--text-color);
   }
 
   .button {

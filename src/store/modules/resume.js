@@ -7,6 +7,7 @@ export const resume = {
       about: "",
       image: [],
       works: [],
+      educations: [],
     },
   }),
 
@@ -27,15 +28,32 @@ export const resume = {
       state.resume.about = value;
     },
 
-    uploadDataResume(state, { name, city, birthday, about, works, image }) {
+    removeResumeImg(state, index) {
+      state.resume.image.splice(index, 1);
+    },
+
+    setResumeImg(state, { name, src, type }) {
+      state.resume.image.push({
+        name: name,
+        src: src,
+        type: type,
+      });
+    },
+
+    uploadDataResume(
+      state,
+      { name, city, birthday, about, works, image, educations }
+    ) {
       !!name ? (state.resume.name = name) : "";
       !!city ? (state.resume.city = city) : "";
       !!birthday ? (state.resume.birthday = birthday) : "";
       !!about ? (state.resume.about = about) : "";
       !!works ? (state.resume.works = works) : "";
       !!image ? (state.resume.image = image) : "";
+      !!educations ? (state.resume.educations = educations) : "";
     },
 
+    // work
     addResumeWork(state, work) {
       state.resume.works.unshift(work);
     },
@@ -47,26 +65,42 @@ export const resume = {
     updateResumeWork(state, work) {
       let arr_work = state.resume.works.find((el) => el.id == work.id);
 
-      arr_work.dateStart = work.dateStart;
-      arr_work.dateEnd = work.dateEnd;
-      arr_work.name = work.name;
-      arr_work.until = work.until;
+      if (!!arr_work) {
+        arr_work.dateStart = work.dateStart;
+        arr_work.dateEnd = work.dateEnd;
+        arr_work.name = work.name;
+        arr_work.until = work.until;
+      }
     },
 
     removeResumeWork(state, id) {
       state.resume.works = state.resume.works.filter((el) => el.id !== id);
     },
 
-    removeResumeImg(state, index) {
-      state.resume.image.splice(index, 1);
+    // education
+    addResumeEducation(state, education) {
+      state.resume.educations.unshift(education);
     },
 
-    setResumeImg(state, { name, src, type }) {
-      state.resume.image.push({
-        name: name,
-        src: src,
-        type: type,
-      });
+    updateResumeEducations(state, educations) {
+      state.resume.educations = educations;
+    },
+
+    updateResumeEducation(state, education) {
+      let arr_ed = state.resume.educations.find((el) => el.id == education.id);
+
+      if (!!arr_ed) {
+        arr_ed.dateStart = education.dateStart;
+        arr_ed.dateEnd = education.dateEnd;
+        arr_ed.name = education.name;
+        arr_ed.until = education.until;
+      }
+    },
+
+    removeResumeEducation(state, id) {
+      state.resume.educations = state.resume.educations.filter(
+        (el) => el.id !== id
+      );
     },
   },
 
@@ -89,6 +123,10 @@ export const resume = {
 
     getResumeWorks(state) {
       return state.resume.works;
+    },
+
+    getResumeEducations(state) {
+      return state.resume.educations;
     },
 
     getResumeImg(state) {

@@ -1,5 +1,5 @@
 <template>
-  <div class="keyword-filter opac">
+  <div class="keyword-filter">
     <div
       v-for="(item, index) in keys"
       :key="index"
@@ -7,7 +7,7 @@
         'keyword-filter__item',
         getKeyFilter == item ? 'keyword-filter__item--active' : '',
       ]"
-      @click="setKeyFilter(item)"
+      @click="clickKey(item)"
     >
       {{ item }}
     </div>
@@ -20,6 +20,22 @@ import { mapGetters, mapMutations } from "vuex";
 export default {
   methods: {
     ...mapMutations(["setKeyFilter"]),
+
+    clickKey(item) {
+      this.gsap.fromTo(
+        "section.sites .sites-wrapper",
+        {
+          opacity: 0,
+        },
+        {
+          delay: 0.4,
+          opacity: 1,
+          duration: 0.4,
+        }
+      );
+
+      this.setKeyFilter(item);
+    },
   },
   computed: {
     ...mapGetters(["getSites", "getKeyFilter"]),

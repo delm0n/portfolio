@@ -19,7 +19,6 @@
               <img :src="item.src" :alt="title" />
             </div>
           </div>
-          <!-- <img :src="getResumeImg[0].src" :alt="title" /> -->
         </div>
 
         <div class="resume-info">
@@ -31,11 +30,21 @@
             v-text="getResumeCity"
           ></p>
 
+          <collapse :when="getMobile ? mobileCollapse : true">
+            <p
+              v-if="!!getResumeAbout"
+              class="resume-about"
+              v-html="getResumeAbout.replace(/(\r\n|\n|\r)/gm, '<br>')"
+            ></p>
+          </collapse>
+
           <p
-            v-if="!!getResumeAbout"
-            class="resume-about"
-            v-html="getResumeAbout.replace(/(\r\n|\n|\r)/gm, '<br>')"
-          ></p>
+            v-if="getMobile"
+            @click="mobileCollapse = !mobileCollapse"
+            class="collapse-button"
+          >
+            {{ !mobileCollapse ? "Развернуть описание" : "Свернуть" }}
+          </p>
         </div>
       </div>
 
@@ -44,6 +53,50 @@
 
         <div
           v-for="(element, index) in getResumeWorks"
+          :key="index"
+          class="resume-works__item"
+        >
+          <p class="resume-works__item-time">
+            <span
+              v-text="
+                new Date(element.dateStart)
+                  .toLocaleDateString('ru', { month: 'long' })[0]
+                  .toUpperCase() +
+                new Date(element.dateStart)
+                  .toLocaleDateString('ru', { month: 'long' })
+                  .slice(1)
+                  .toLowerCase() +
+                ' ' +
+                new Date(element.dateStart).getFullYear()
+              "
+            ></span>
+            —
+            <span v-if="element.until"> Настоящее время </span>
+            <span
+              v-else
+              v-text="
+                new Date(element.dateEnd)
+                  .toLocaleDateString('ru', { month: 'long' })[0]
+                  .toUpperCase() +
+                new Date(element.dateEnd)
+                  .toLocaleDateString('ru', { month: 'long' })
+                  .slice(1)
+                  .toLowerCase() +
+                ' ' +
+                new Date(element.dateEnd).getFullYear()
+              "
+            >
+            </span>
+          </p>
+          <p class="resume-works__item-name">{{ element.name }}</p>
+        </div>
+      </div>
+
+      <div v-if="!!getResumeEducations.length" class="resume-educations">
+        <p class="resume-works__title">Образование</p>
+
+        <div
+          v-for="(element, index) in getResumeEducations"
           :key="index"
           class="resume-works__item"
         >
@@ -93,8 +146,14 @@ import { mapGetters } from "vuex";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import Swiper from "swiper";
 import { EffectFade, Autoplay } from "swiper/modules";
+import { Collapse } from "vue-collapsed";
 
 export default {
+  data() {
+    return {
+      mobileCollapse: false,
+    };
+  },
   mounted() {
     const MySwiper = () => {
       let mySwiper = new Swiper(".resume-image__slider", {
@@ -144,8 +203,10 @@ export default {
       "getResumeCity",
       "getAge",
       "getResumeWorks",
+      "getResumeEducations",
       "getResumeAbout",
       "getResumeImg",
+      "getMobile",
     ]),
 
     title() {
@@ -159,6 +220,9 @@ export default {
         } else return false;
       }
     },
+  },
+  components: {
+    Collapse,
   },
 };
 </script>
@@ -209,6 +273,7 @@ export default {
       @media (max-width: 768px) {
         flex-direction: column-reverse;
         gap: 20px;
+        align-items: flex-start;
       }
 
       .resume-image {
@@ -252,9 +317,15 @@ export default {
         margin-top: 20px;
         line-height: 125%;
       }
+
+      .collapse-button {
+        margin-top: 20px;
+        text-decoration: underline;
+      }
     }
 
-    .resume-works {
+    .resume-works,
+    .resume-educations {
       padding-top: 40px;
 
       @media (max-width: 768px) {
