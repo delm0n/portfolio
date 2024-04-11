@@ -8,18 +8,21 @@
 </template>
 
 <script>
+import { defineAsyncComponent } from "vue";
 import AboutMe from "@/components/AboutMe.vue";
-import Sites from "@/components/Sites.vue";
-import MyFooter from "@/components/MyFooter.vue";
+// import Sites from "@/components/Sites.vue";
+// import MyFooter from "@/components/MyFooter.vue";
 import Resume from "@/components/Resume.vue";
 import { mapGetters, mapMutations } from "vuex";
 
 export default {
   components: {
     AboutMe,
-    Sites,
-    MyFooter,
     Resume,
+    // Sites,
+    // MyFooter,
+    Sites: defineAsyncComponent(() => import("@/components/Sites.vue")),
+    MyFooter: defineAsyncComponent(() => import("@/components/MyFooter.vue")),
   },
   computed: {
     ...mapGetters(["getAboutMeRef", "wasAnimation", "isProd"]),

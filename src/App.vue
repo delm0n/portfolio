@@ -4,14 +4,12 @@
       <nav v-if="isSite && isProd">
         <router-link to="/">На главную</router-link>
       </nav>
-
+      <nav v-if="!isProd">
+        <router-link to="/">Разработка</router-link> |
+        <router-link to="/landing">Лендинг</router-link>
+      </nav>
       <theme-toggle />
     </div>
-
-    <nav class="nav" v-if="!isProd">
-      <router-link to="/">Разработка</router-link> |
-      <router-link to="/landing">Лендинг</router-link>
-    </nav>
 
     <router-view v-slot="{ Component }">
       <transition name="fade" mode="out-in">
