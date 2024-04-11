@@ -76,6 +76,25 @@ export default {
 
 <style lang="scss">
 .input-date {
+  .dp__inner_nav:hover {
+    background: none !important;
+  }
+
+  .dp__action_cancel {
+    transition: all 0.15s;
+
+    &:hover {
+      color: var(--accent);
+    }
+  }
+
+  .dp__today {
+    &:hover {
+      background: var(--accent);
+      color: #f7f7f7;
+    }
+  }
+
   .dp__overlay_container {
     &::-webkit-scrollbar-thumb {
       background: rgba(57, 57, 57, 0.3);

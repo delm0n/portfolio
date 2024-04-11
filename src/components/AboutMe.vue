@@ -30,7 +30,11 @@ export default {
   mounted() {
     this.$nextTick(function () {
       this.gsap.fromTo(
-        ["header .header-wrapper h1", "header .header-wrapper h2"],
+        [
+          "header .header-wrapper h1",
+          "header .header-wrapper h2",
+          "section.sites",
+        ],
         {
           opacity: 0,
         },
@@ -46,23 +50,6 @@ export default {
           },
         }
       );
-
-      // this.gsap.fromTo(
-      //   ".keyword-filter",
-      //   {
-      //     opacity: 0,
-      //   },
-      //   {
-      //     duration: 1,
-      //     delay: 0.6,
-      //     opacity: 1,
-      //     onComplete: () => {
-      //       if (this.getAboutMeRef && Boolean(this.$refs.button)) {
-      //         this.$refs.button.classList.add("active");
-      //       }
-      //     },
-      //   }
-      // );
     });
   },
 };
@@ -71,10 +58,10 @@ export default {
 <style lang="scss">
 header {
   .header-wrapper {
-    padding: 30px 0 40px;
+    padding: 40px 0;
 
     @media (max-width: 576px) {
-      padding: 20px 0 30px;
+      padding: 30px 0;
     }
   }
 

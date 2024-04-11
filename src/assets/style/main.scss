@@ -74,7 +74,11 @@ body {
     max-width: 1600px;
     width: 95%;
 
+    padding-top: 80px;
+
     @media (max-width: 768px) {
+      padding-top: 40px;
+
       width: 100%;
       max-width: 640px;
     }
@@ -92,7 +96,11 @@ body {
 }
 
 nav {
-  padding: 30px 0;
+  color: var(--text-color);
+
+  &.nav {
+    padding: 30px 0;
+  }
 
   a {
     font-weight: bold;

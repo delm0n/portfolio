@@ -342,6 +342,10 @@ export default {
       }
 
       &__item {
+        &:not(:last-child) {
+          margin-bottom: 14px;
+        }
+
         &-name {
           color: var(--text-color);
           @include fluidFontSize(16, 18, 320, 1920);

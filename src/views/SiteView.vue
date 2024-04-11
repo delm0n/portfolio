@@ -116,6 +116,7 @@ export default {
     margin-top: 20px;
     text-decoration: underline;
     cursor: pointer;
+    color: var(--text-color);
   }
 
   .v-collapse {
@@ -124,11 +125,11 @@ export default {
   }
 
   &__photo {
-    margin: 60px 0;
+    margin: 40px 0 60px;
 
-    @media (max-width: 576px) {
-      margin: 40px 0 60px;
-    }
+    // @media (max-width: 576px) {
+    //   margin: 40px 0 60px;
+    // }
 
     .img-wrapper {
       display: grid;
@@ -186,7 +187,6 @@ export default {
     @include fluidFontSize(16, 20, 320, 1920);
     font-weight: 400;
     color: var(--text-color);
-    margin-bottom: 40px;
   }
 
   &__link {

@@ -1,10 +1,14 @@
 <template>
   <div :class="['container', isLanding ? 'container-landing' : '']">
     <div class="toggle-container">
+      <nav v-if="isSite && isProd">
+        <router-link to="/">На главную</router-link>
+      </nav>
+
       <theme-toggle />
     </div>
 
-    <nav v-if="!isProd">
+    <nav class="nav" v-if="!isProd">
       <router-link to="/">Разработка</router-link> |
       <router-link to="/landing">Лендинг</router-link>
     </nav>
@@ -26,7 +30,11 @@ export default {
   computed: {
     ...mapGetters(["isProd"]),
     isLanding() {
-      return this.$route.name == "landing";
+      return this.isProd ? true : this.$route.name != "home";
+    },
+
+    isSite() {
+      return this.$route.name == "site";
     },
   },
   methods: {
@@ -60,8 +68,15 @@ export default {
 
 .toggle-container {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
   padding: 20px 0;
+  flex-wrap: wrap;
+
+  & > span {
+    margin-left: auto;
+  }
 }
 
 .fade-enter-active,
