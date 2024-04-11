@@ -77,16 +77,24 @@ body {
   .container-landing {
     max-width: 1600px;
     width: 95%;
-    padding-top: 70px;
+    padding-top: 40px;
 
     @media (max-width: 991px) {
-      padding-top: 40px;
+      padding-top: 30px;
       width: 100%;
+      max-width: 780px;
+    }
+
+    @media (max-width: 830px) {
+      max-width: 700px;
+    }
+
+    @media (max-width: 768px) {
       max-width: 640px;
     }
 
     @media (max-width: 576px) {
-      padding-top: 20px;
+      padding-top: 10px;
     }
   }
 }

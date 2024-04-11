@@ -31,10 +31,14 @@ export default {
 <style lang="scss">
 header {
   .header-wrapper {
-    padding: 40px 0;
+    padding: 100px 0 80px;
+
+    @media (max-width: 1136px) {
+      padding: 40px 0 60px;
+    }
 
     @media (max-width: 576px) {
-      padding: 10px 0 30px;
+      padding: 10px 0 60px;
     }
   }
 
