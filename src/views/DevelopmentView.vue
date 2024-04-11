@@ -16,6 +16,7 @@ import ButtonJson from "@/components/ButtonJson.vue";
 import SitesEdit from "@/components/SitesEdit.vue";
 import ModalSiteEdit from "@/components/SiteEditModal.vue";
 import ResumeEdit from "@/components/ResumeEdit.vue";
+import { mapMutations } from "vuex";
 
 import "swiper/scss";
 import "swiper/scss/effect-fade";
@@ -27,6 +28,20 @@ export default {
     SitesEdit,
     ModalSiteEdit,
     ResumeEdit,
+  },
+
+  methods: {
+    ...mapMutations(["setAnimation"]),
+  },
+
+  mounted() {
+    this.$nextTick(function () {
+      this.setAnimation();
+      setTimeout(() => {
+        document.getElementById("#loader").classList.remove("load");
+        document.body.classList.remove("preload");
+      }, 500);
+    });
   },
 };
 </script>

@@ -11,8 +11,7 @@
     <a
       v-if="!!getAboutMeRef"
       :href="getAboutMeRef"
-      ref="button"
-      class="button"
+      class="button button_ref"
       target="__blank"
       ><span> Связаться со мной</span></a
     >
@@ -26,32 +25,6 @@ export default {
   computed: {
     ...mapGetters(["getAboutMeTitle", "getAboutMeSubtitle", "getAboutMeRef"]),
   },
-
-  mounted() {
-    this.$nextTick(function () {
-      this.gsap.fromTo(
-        [
-          "header .header-wrapper h1",
-          "header .header-wrapper h2",
-          "section.sites",
-        ],
-        {
-          opacity: 0,
-        },
-        {
-          duration: 1,
-          delay: 1,
-          opacity: 1,
-          stagger: 0.4,
-          onComplete: () => {
-            if (this.getAboutMeRef && Boolean(this.$refs.button)) {
-              this.$refs.button.classList.add("active");
-            }
-          },
-        }
-      );
-    });
-  },
 };
 </script>
 
@@ -61,7 +34,7 @@ header {
     padding: 40px 0;
 
     @media (max-width: 576px) {
-      padding: 30px 0;
+      padding: 10px 0 30px;
     }
   }
 

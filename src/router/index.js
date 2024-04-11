@@ -43,7 +43,6 @@ const router = createRouter({
     process.env.NODE_ENV == "development"
       ? createWebHistory("")
       : createWebHistory("/portfolio/"),
-  // history: createWebHistory(process.env.BASE_URL),
   routes: process.env.NODE_ENV == "development" ? routes : routesBuild,
 });
 

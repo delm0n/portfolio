@@ -10,16 +10,47 @@
       rel="preload"
       as="script"
     ></script>
+    <style>
+      .load {
+        position: fixed;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background: rgb(252 252 253);
+        z-index: 1000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      @keyframes spinner {
+        from {
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .load .loader {
+        display: block;
+        width: 60px;
+        height: 60px;
+        aspect-ratio: 1/1;
+        border: 5px solid #f4576d;
+        border-radius: 50%;
+        border-top-color: transparent;
+        animation: spinner 0.7s linear infinite;
+        box-sizing: border-box;
+      }
+    </style>
     <title><%= htmlWebpackPlugin.options.title %></title>
   </head>
-  <body>
-    <noscript>
-      <strong
-        >We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work
-        properly without JavaScript enabled. Please enable it to
-        continue.</strong
-      >
-    </noscript>
+  <body class="preload">
+    <div id="#loader" class="load">
+      <div class="loader"></div>
+    </div>
+
     <div id="app"></div>
 
     <!-- fancybox -->

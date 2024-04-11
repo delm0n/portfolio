@@ -60,7 +60,7 @@
 
 <script>
 import MyFooter from "@/components/MyFooter.vue";
-import { mapGetters } from "vuex";
+import { mapGetters, mapMutations } from "vuex";
 import { Collapse } from "vue-collapsed";
 
 export default {
@@ -101,6 +101,18 @@ export default {
 
     windowbreakpoint.addListener(breakpointChecker);
     breakpointChecker();
+
+    this.$nextTick(function () {
+      this.setAnimation();
+
+      setTimeout(() => {
+        document.getElementById("#loader").classList.remove("load");
+        document.body.classList.remove("preload");
+      }, 500);
+    });
+  },
+  methods: {
+    ...mapMutations(["setAnimation"]),
   },
 };
 </script>
@@ -173,6 +185,11 @@ export default {
 
   &__body {
     min-height: calc(100vh - 415px);
+    padding-top: 40px;
+
+    @media (max-width: 768px) {
+      padding-top: 20px;
+    }
   }
 
   &__title {

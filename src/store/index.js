@@ -12,8 +12,10 @@ function getValue(value) {
 export default createStore({
   state: {
     prod: process.env.NODE_ENV == "production",
+
     mobile: window.innerWidth > 769,
     darkTheme: false,
+    animation: false,
   },
   getters: {
     isProd(state) {
@@ -27,6 +29,10 @@ export default createStore({
     getTheme(state) {
       return state.darkTheme;
     },
+
+    wasAnimation(state) {
+      return state.animation;
+    },
   },
   mutations: {
     setMobile(state, value) {
@@ -35,6 +41,10 @@ export default createStore({
 
     changeTheme(state) {
       state.darkTheme = !state.darkTheme;
+    },
+
+    setAnimation(state) {
+      state.animation = true;
     },
   },
   actions: {

@@ -143,7 +143,7 @@
 
 <script>
 import { mapGetters } from "vuex";
-import ScrollTrigger from "gsap/ScrollTrigger";
+// import ScrollTrigger from "gsap/ScrollTrigger";
 import Swiper from "swiper";
 import { EffectFade, Autoplay } from "swiper/modules";
 import { Collapse } from "vue-collapsed";
@@ -184,18 +184,18 @@ export default {
       MySwiper();
     }
 
-    this.$nextTick(function () {
-      ScrollTrigger.create({
-        trigger: ".resume",
-        start: "top 75%",
-        animation: this.gsap.from(".resume", {
-          autoAlpha: 0,
-          delay: 2.5,
-          duration: 0.7,
-          ease: "power1.out",
-        }),
-      });
-    });
+    // this.$nextTick(function () {
+    //   ScrollTrigger.create({
+    //     trigger: ".resume",
+    //     start: "top 75%",
+    //     animation: this.gsap.from(".resume", {
+    //       autoAlpha: 0,
+    //       delay: 2.5,
+    //       duration: 0.7,
+    //       ease: "power1.out",
+    //     }),
+    //   });
+    // });
   },
   computed: {
     ...mapGetters([
