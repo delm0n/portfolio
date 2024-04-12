@@ -109,7 +109,7 @@
         <input-file-line
           class="label-images"
           :resolution="'Нажмите, чтобы загрузить картинки на страницу сайта</span>'"
-          :limit="16"
+          :limit="6"
           @load-image="loadImageContent"
           @delete-image="deleteImageContent"
           :uploadImg="getSiteModalImages"

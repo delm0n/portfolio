@@ -4,7 +4,7 @@
     <div class="sites-wrapper">
       <div class="sites-wrapper__col">
         <site-item
-          class="site-animation"
+          class="site-animation site-animation--active"
           v-for="(item, index) in sitesCol1"
           :key="index"
           :site="item"
@@ -16,7 +16,7 @@
         class="sites-wrapper__col"
       >
         <site-item
-          class="site-animation"
+          class="site-animation site-animation--active"
           v-for="(item, index) in sitesCol2"
           :key="index"
           :site="item"
@@ -95,6 +95,9 @@ export default {
                 delay: 0.5,
                 duration: 1.5,
                 ease: "power1.out",
+                onComplete: () => {
+                  element.classList.remove("site-animation--active");
+                },
               }),
             });
           })
@@ -150,7 +153,7 @@ export default {
         max-width: 50%;
       }
 
-      .site-animation {
+      .site-animation--active {
         will-change: auto;
       }
     }

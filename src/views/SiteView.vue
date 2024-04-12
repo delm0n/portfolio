@@ -8,7 +8,7 @@
         v-html="site.descr.replace(/(\r\n|\n|\r)/gm, '<br>')"
       ></p>
 
-      <div class="site-page__photo" v-if="!!site.imagesContent.length">
+      <div class="site-page__photo" v-if="!!photoShow.length">
         <div class="img-wrapper">
           <a
             :href="item.src"
@@ -79,10 +79,16 @@ export default {
     },
 
     photoShow() {
-      return [
-        this.site.img,
-        ...this.site.imagesContent.filter((el, index) => index < this.count),
-      ];
+      if (!!this.site.img.src) {
+        return [
+          this.site.img,
+          ...this.site.imagesContent.filter((el, index) => index < this.count),
+        ];
+      } else {
+        return [
+          ...this.site.imagesContent.filter((el, index) => index < this.count),
+        ];
+      }
     },
 
     photoCollapse() {

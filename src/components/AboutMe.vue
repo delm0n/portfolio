@@ -56,7 +56,7 @@ header {
   .button {
     @extend %button-secondary;
 
-    margin: 30px 0 0;
+    // margin: 30px 0 0;
 
     @media (max-width: 576px) {
       margin: 20px 0 0;
