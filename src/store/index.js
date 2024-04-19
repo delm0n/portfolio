@@ -3,6 +3,7 @@ import { aboutMe } from "./modules/aboutMe";
 import { sites } from "./modules/sites";
 import { resume } from "./modules/resume";
 import dataJSON from "/public/data.json";
+import axios from "axios";
 
 //проверка на undefined
 function getValue(value) {
@@ -73,6 +74,23 @@ export default createStore({
         context.commit("uploadDataSites", {
           sites: getValue(dataJSON.sites),
         });
+      }
+    },
+
+    async uploadImage(context) {
+      try {
+        await axios
+          .get("/images.json")
+          .then(function (response) {
+            // обработка успешного запроса
+            context.commit("uploadImageSites", response.data);
+          })
+          .catch(function (e) {
+            // обработка ошибки
+            console.log(e);
+          });
+      } catch (e) {
+        console.log(e);
       }
     },
   },

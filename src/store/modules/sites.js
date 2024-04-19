@@ -28,6 +28,12 @@ export const sites = {
       !!sites ? (state.sites = sites) : "";
     },
 
+    uploadImageSites(state, { sites }) {
+      state.sites.forEach((site) => {
+        site.imagesContent = sites.find((el) => el.id == site.id).imagesContent;
+      });
+    },
+
     removeSite(state, index) {
       state.sites.splice(index, 1);
     },
@@ -173,8 +179,37 @@ export const sites = {
         : [];
     },
 
-    getSitesJson(state) {
-      return { sites: state.sites };
+    getSitesJsonNoImage(state) {
+      let sitesArr = [];
+
+      state.sites.forEach((element) => {
+        sitesArr.push({
+          id: element.id,
+          name: element.name,
+          descr: element.descr,
+          link: element.link,
+          page: element.page,
+          img: element.img,
+          path: element.path,
+          keywords: element.keywords,
+          imagesContent: [],
+        });
+      });
+
+      return { sites: sitesArr };
+    },
+
+    getSitesJsonImage(state) {
+      let sitesArr = [];
+
+      state.sites.forEach((element) => {
+        sitesArr.push({
+          id: element.id,
+          imagesContent: element.imagesContent,
+        });
+      });
+
+      return { sites: sitesArr };
     },
   },
 };

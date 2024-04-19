@@ -8,7 +8,7 @@
         <router-link to="/">Разработка</router-link> |
         <router-link to="/landing">Лендинг</router-link>
       </nav>
-      <theme-toggle />
+      <theme-toggle @click="clck()" />
     </div>
 
     <router-view v-slot="{ Component }">
@@ -36,12 +36,16 @@ export default {
     },
   },
   methods: {
-    ...mapActions(["uploadData"]),
+    ...mapActions(["uploadData", "uploadImage"]),
     ...mapMutations(["setMobile"]),
+
+    clck() {
+      this.uploadImage();
+    },
   },
   mounted() {
     this.uploadData();
-
+    this.uploadImage();
     const windowbreakpoint = window.matchMedia("(max-width: 768px)");
     const breakpointChecker = () => {
       if (!windowbreakpoint.matches) {

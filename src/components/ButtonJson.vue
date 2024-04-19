@@ -7,29 +7,43 @@ import { mapGetters } from "vuex";
 
 export default {
   computed: {
-    ...mapGetters(["getAboutMeJson", "getSitesJson", "getResumeJson"]),
+    ...mapGetters([
+      "getAboutMeJson",
+      "getSitesJsonNoImage",
+      "getResumeJson",
+      "getSitesJsonImage",
+    ]),
 
     jsonContent() {
       return JSON.stringify(
         Object.assign(
           this.getAboutMeJson,
-          this.getSitesJson,
+          this.getSitesJsonNoImage,
           this.getResumeJson
         )
       );
+    },
+
+    imagesContent() {
+      return JSON.stringify(Object.assign({}, this.getSitesJsonImage));
     },
   },
 
   methods: {
     saveContent() {
-      const blob = new Blob([this.jsonContent], {
+      this.download(this.jsonContent, "data.json");
+      this.download(this.imagesContent, "images.json");
+    },
+
+    download(content, fileName) {
+      const blob = new Blob([content], {
         type: "application/json",
       });
       const url = URL.createObjectURL(blob);
 
       const link = document.createElement("a");
       link.href = url;
-      link.setAttribute("download", "data.json");
+      link.setAttribute("download", fileName);
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
