@@ -78,9 +78,13 @@ export default createStore({
     },
 
     async uploadImage(context) {
+      let path = context.getters.isProd
+        ? "/portfolio/images.json"
+        : "/images.json";
+
       try {
         await axios
-          .get("/images.json")
+          .get(path)
           .then(function (response) {
             // обработка успешного запроса
             context.commit("uploadImageSites", response.data);
