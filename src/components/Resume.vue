@@ -137,7 +137,11 @@
       </div>
     </div>
 
-    <a v-if="getPdf" href="/resume.pdf" download class="button"
+    <a
+      v-if="getPdf"
+      :href="isProd ? '/portfolio/resume.pdf' : '/resume.pdf'"
+      download
+      class="button"
       >Скачать резюме</a
     >
   </section>
@@ -210,6 +214,7 @@ export default {
       "getResumeImg",
       "getMobile",
       "getPdf",
+      "isProd",
     ]),
 
     title() {
