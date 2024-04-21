@@ -13,7 +13,7 @@ function getValue(value) {
 export default createStore({
   state: {
     prod: process.env.NODE_ENV == "production",
-
+    pdf: false,
     mobile: window.innerWidth > 769,
     darkTheme: false,
     animation: false,
@@ -34,6 +34,10 @@ export default createStore({
     wasAnimation(state) {
       return state.animation;
     },
+
+    getPdf(state) {
+      return state.pdf;
+    },
   },
   mutations: {
     setMobile(state, value) {
@@ -46,6 +50,10 @@ export default createStore({
 
     setAnimation(state) {
       state.animation = true;
+    },
+
+    setPdf(state, value) {
+      state.pdf = value;
     },
   },
   actions: {
@@ -92,6 +100,27 @@ export default createStore({
           .catch(function (e) {
             // обработка ошибки
             console.log(e);
+          });
+      } catch (e) {
+        console.log(e);
+      }
+    },
+
+    async checkPdf(context) {
+      let path = context.getters.isProd
+        ? "/portfolio/resume.pdf"
+        : "/resume.pdf";
+
+      try {
+        await axios
+          .get(path)
+          .then(function (response) {
+            // обработка успешного запроса
+            context.commit("setPdf", true);
+          })
+          .catch(function (e) {
+            // обработка ошибки
+            context.commit("setPdf", false);
           });
       } catch (e) {
         console.log(e);

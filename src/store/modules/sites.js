@@ -31,6 +31,9 @@ export const sites = {
     uploadImageSites(state, { sites }) {
       state.sites.forEach((site) => {
         site.imagesContent = sites.find((el) => el.id == site.id).imagesContent;
+
+        // console.log(sites.find((el) => el.id == site.id).img);
+        site.img = sites.find((el) => el.id == site.id).img;
       });
     },
 
@@ -189,10 +192,13 @@ export const sites = {
           descr: element.descr,
           link: element.link,
           page: element.page,
-          img: element.img,
           path: element.path,
           keywords: element.keywords,
           imagesContent: [],
+          img: {
+            src: "",
+            type: "",
+          },
         });
       });
 
@@ -206,6 +212,7 @@ export const sites = {
         sitesArr.push({
           id: element.id,
           imagesContent: element.imagesContent,
+          img: element.img,
         });
       });
 

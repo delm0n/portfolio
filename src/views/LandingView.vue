@@ -63,7 +63,7 @@ export default {
                 opacity: 0,
               },
               {
-                duration: 1.2,
+                duration: 1,
                 opacity: 1,
                 stagger: 0.6,
                 onComplete: () => {

@@ -79,6 +79,8 @@ export default {
 
   computed: {
     background() {
+      // console.log(this.site);
+
       return this.site.img.src
         ? "background: url(" + this.site.img.src + ") center/cover no-repeat"
         : "background: rgba(238, 238, 238, 0.6)";

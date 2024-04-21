@@ -22,7 +22,7 @@
     <input-file-line
       class="label-avatar"
       :resolution="'Загрузить аватар <span> (слайдер до 8 фотографий)</span>'"
-      :limit="8"
+      :limit="5"
       @load-image="loadImage"
       @delete-image="deleteImage"
       :uploadImg="getResumeImg"

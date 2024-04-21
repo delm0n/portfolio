@@ -137,7 +137,9 @@
       </div>
     </div>
 
-    <button class="button">Скачать резюме</button>
+    <a v-if="getPdf" href="/resume.pdf" download class="button"
+      >Скачать резюме</a
+    >
   </section>
 </template>
 
@@ -207,6 +209,7 @@ export default {
       "getResumeAbout",
       "getResumeImg",
       "getMobile",
+      "getPdf",
     ]),
 
     title() {

@@ -70,14 +70,14 @@ export default {
     }
   }
 
-  &:hover {
-    .site-item__img .img-wrap {
-      transform: scale(1.025);
-    }
+  // &:hover {
+  //   .site-item__img .img-wrap {
+  //     transform: scale(1.025);
+  //   }
 
-    .site-keywords {
-      opacity: 0.8;
-    }
-  }
+  //   .site-keywords {
+  //     opacity: 0.8;
+  //   }
+  // }
 }
 </style>

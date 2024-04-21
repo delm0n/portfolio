@@ -15,6 +15,7 @@
       @start="drag = true"
       @end="drag = false"
       item-key="order"
+      group="work"
     >
       <template #item="{ element }">
         <li class="resume-work__item">

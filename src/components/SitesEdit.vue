@@ -74,6 +74,7 @@
         @start="drag = true"
         @end="drag = false"
         item-key="order"
+        group="sites"
       >
         <template #item="{ element }">
           <li

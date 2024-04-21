@@ -156,6 +156,18 @@ export default {
       .site-animation--active {
         will-change: auto;
       }
+
+      &:not(.site-animation--active) {
+        &:hover {
+          .site-item__img .img-wrap {
+            transform: scale(1.025);
+          }
+
+          .site-keywords {
+            opacity: 0.8;
+          }
+        }
+      }
     }
   }
 }
