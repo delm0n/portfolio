@@ -330,6 +330,7 @@ export default {
         margin-top: 20px;
         cursor: pointer;
         text-decoration: underline;
+        color: var(--text-color);
       }
     }
 

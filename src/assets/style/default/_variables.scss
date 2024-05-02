@@ -52,7 +52,11 @@ $color-transition: color 0.2s ease;
     }
   }
 
-  &:hover {
+  &:hover,
+  &:active,
+  &:has(> input:focus),
+  &:has(> input:focus-visible) &:has(> textarea:focus),
+  &:has(> textarea:focus-visible) {
     transition: 0.2s all;
     background: var(--input-background-hover);
   }
@@ -71,11 +75,13 @@ $color-transition: color 0.2s ease;
   font-weight: 400;
   border: 1px solid var(--text-color);
   border-radius: 0px;
-  transition: all 0.3s;
   background-color: var(--background-power);
+  transition: all 0.1s;
 
   &:hover,
   &:active {
+    transition: all 0.3s;
+
     background-color: var(--text-color);
     color: var(--background);
   }
@@ -90,8 +96,7 @@ $color-transition: color 0.2s ease;
   opacity: 0;
   position: relative;
   background: var(--background-power);
-  transition: all 0.3s;
-
+  transition: all 0.1s;
   color: var(--text-color);
   cursor: pointer;
   padding: 14px;
@@ -138,7 +143,7 @@ $color-transition: color 0.2s ease;
   &.active {
     color: var(--accent);
     opacity: 1;
-
+    transition: all 0.3s;
     &:before,
     &:after {
       width: 100%;
@@ -153,7 +158,7 @@ $color-transition: color 0.2s ease;
 
     &:hover {
       background: var(--accent);
-
+      transition: all 0.3s;
       color: #f7f7f7;
     }
   }
