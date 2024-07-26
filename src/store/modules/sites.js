@@ -31,8 +31,6 @@ export const sites = {
     uploadImageSites(state, { sites }) {
       state.sites.forEach((site) => {
         site.imagesContent = sites.find((el) => el.id == site.id).imagesContent;
-
-        // console.log(sites.find((el) => el.id == site.id).img);
         site.img = sites.find((el) => el.id == site.id).img;
       });
     },

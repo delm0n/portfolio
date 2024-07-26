@@ -336,7 +336,7 @@ export default {
 
     .resume-works,
     .resume-educations {
-      padding-top: 40px;
+      padding-top: 60px;
 
       @media (max-width: 768px) {
         grid-column: 1/3;

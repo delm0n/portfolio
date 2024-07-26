@@ -95,6 +95,15 @@ export default {
                 delay: 0.5,
                 duration: 1.5,
                 ease: "power1.out",
+
+                onStart: () => {
+                  element.querySelector(
+                    ".site-item__img .img-wrap"
+                  ).style.background = element.querySelector(
+                    ".site-item__img .img-wrap"
+                  ).dataset.back;
+                },
+
                 onComplete: () => {
                   element.classList.remove("site-animation--active");
                 },
@@ -153,8 +162,14 @@ export default {
         max-width: 50%;
       }
 
-      .site-animation--active {
-        will-change: auto;
+      .site-animation {
+        &--active {
+          will-change: auto;
+
+          .site-item__img .img-wrap {
+            opacity: 0;
+          }
+        }
       }
 
       &:not(.site-animation--active) {

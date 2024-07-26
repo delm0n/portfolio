@@ -2,7 +2,7 @@
   <router-link :to="'/site/' + site.path">
     <div class="site-item">
       <div class="site-item__img">
-        <div class="img-wrap" :style="background"></div>
+        <div class="img-wrap" :data-back="background" style=""></div>
       </div>
       <div class="site-item__content">
         <p class="site-name">
@@ -29,9 +29,9 @@ export default {
     },
 
     background() {
-      return this.site.img.src
-        ? "background: url(" + this.site.img.src + ") center/cover no-repeat"
-        : "background: rgba(238, 238, 238, 0.6)";
+      return !!this.site.img.src
+        ? "url(" + this.site.img.src + ") center/cover no-repeat, #fff"
+        : "#fff";
     },
   },
 };
@@ -41,13 +41,17 @@ export default {
 .site-item {
   cursor: pointer;
 
-  &__img .img-wrap {
-    width: 100%;
-    aspect-ratio: 1920/1200;
+  &__img {
     background: var(--input-background);
-    transition: all 0.4s;
-    background-size: cover;
-    background-position: center;
+
+    .img-wrap {
+      width: 100%;
+      aspect-ratio: 1920/1200;
+
+      transition: all 0.3s;
+      background-size: cover;
+      background-position: center;
+    }
   }
 
   &__content {
