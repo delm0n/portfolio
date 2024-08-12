@@ -73,15 +73,5 @@ export default {
       margin-top: 10px;
     }
   }
-
-  // &:hover {
-  //   .site-item__img .img-wrap {
-  //     transform: scale(1.025);
-  //   }
-
-  //   .site-keywords {
-  //     opacity: 0.8;
-  //   }
-  // }
 }
 </style>

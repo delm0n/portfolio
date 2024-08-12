@@ -355,6 +355,7 @@ export default {
 
     .resolution {
       @include fluidFontSize(16, 20, 320, 1920);
+      text-decoration: underline;
     }
   }
 

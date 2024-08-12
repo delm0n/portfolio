@@ -129,6 +129,7 @@ export default {
     margin-bottom: 20px;
 
     .resolution {
+      text-decoration: underline;
       @include fluidFontSize(16, 20, 320, 1920);
     }
   }

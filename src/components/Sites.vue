@@ -92,8 +92,8 @@ export default {
               animation: this.gsap.from(element, {
                 autoAlpha: 0,
                 y: 150,
-                delay: 0.5,
-                duration: 1.5,
+                delay: 0.75,
+                duration: 1.25,
                 ease: "power1.out",
 
                 onStart: () => {
@@ -102,6 +102,9 @@ export default {
                   ).style.background = element.querySelector(
                     ".site-item__img .img-wrap"
                   ).dataset.back;
+                  element.querySelector(
+                    ".site-item__img .img-wrap"
+                  ).dataset.back = "";
                 },
 
                 onComplete: () => {
@@ -172,7 +175,7 @@ export default {
         }
       }
 
-      &:not(.site-animation--active) {
+      .site-item:not(.site-animation--active) {
         &:hover {
           .site-item__img .img-wrap {
             transform: scale(1.025);
