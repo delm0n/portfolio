@@ -10,6 +10,7 @@ export default {
     ...mapGetters([
       "getAboutMeJson",
       "getSitesJsonNoImage",
+      "getSitesJsonImageArray",
       "getResumeJson",
       "getSitesJsonImage",
     ]),
@@ -27,12 +28,17 @@ export default {
     imagesContent() {
       return JSON.stringify(Object.assign({}, this.getSitesJsonImage));
     },
+
+    imagesArray() {
+      return JSON.stringify(Object.assign({}, this.getSitesJsonImageArray));
+    },
   },
 
   methods: {
     saveContent() {
       this.download(this.jsonContent, "data.json");
       this.download(this.imagesContent, "images.json");
+      this.download(this.imagesArray, "images-array.json");
     },
 
     download(content, fileName) {

@@ -36,7 +36,12 @@ export default {
     },
   },
   methods: {
-    ...mapActions(["uploadData", "uploadImage", "checkPdf"]),
+    ...mapActions([
+      "uploadData",
+      "uploadImage",
+      "uploadImageArray",
+      "checkPdf",
+    ]),
     ...mapMutations(["setMobile"]),
 
     clck() {
@@ -47,6 +52,8 @@ export default {
     this.uploadData();
     this.uploadImage();
     this.checkPdf();
+
+    this.uploadImageArray();
 
     const windowbreakpoint = window.matchMedia("(max-width: 768px)");
     const breakpointChecker = () => {

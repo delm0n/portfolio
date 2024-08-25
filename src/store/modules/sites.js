@@ -30,8 +30,15 @@ export const sites = {
 
     uploadImageSites(state, { sites }) {
       state.sites.forEach((site) => {
-        site.imagesContent = sites.find((el) => el.id == site.id).imagesContent;
+        // site.imagesContent = sites.find((el) => el.id == site.id).imagesContent;
         site.img = sites.find((el) => el.id == site.id).img;
+      });
+    },
+
+    uploadImageArraySites(state, { sites }) {
+      state.sites.forEach((site) => {
+        site.imagesContent = sites.find((el) => el.id == site.id).imagesContent;
+        // site.img = sites.find((el) => el.id == site.id).img;
       });
     },
 
@@ -209,8 +216,22 @@ export const sites = {
       state.sites.forEach((element) => {
         sitesArr.push({
           id: element.id,
-          imagesContent: element.imagesContent,
           img: element.img,
+        });
+      });
+
+      return { sites: sitesArr };
+    },
+
+    getSitesJsonImageArray(state) {
+      let sitesArr = [];
+
+      state.sites.forEach((element) => {
+        console.log(element.imagesContent);
+
+        sitesArr.push({
+          id: element.id,
+          imagesContent: element.imagesContent,
         });
       });
 

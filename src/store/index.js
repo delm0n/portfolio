@@ -106,6 +106,27 @@ export default createStore({
       }
     },
 
+    async uploadImageArray(context) {
+      let path = context.getters.isProd
+        ? "/portfolio/images-array.json"
+        : "/images-array.json";
+
+      try {
+        await axios
+          .get(path)
+          .then(function (response) {
+            // обработка успешного запроса
+            context.commit("uploadImageArraySites", response.data);
+          })
+          .catch(function (e) {
+            // обработка ошибки
+            console.log(e);
+          });
+      } catch (e) {
+        console.log(e);
+      }
+    },
+
     async checkPdf(context) {
       let path = context.getters.isProd
         ? "/portfolio/resume.pdf"
