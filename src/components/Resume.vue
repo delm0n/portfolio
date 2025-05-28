@@ -3,7 +3,7 @@
     <div class="resume-wrapper">
       <div class="resume-row">
         <div v-if="getResumeImg.length == 1" class="resume-image">
-          <img :src="getResumeImg[0].src" :alt="title" />
+          <img :src="getImagePath(getResumeImg[0].src)" :alt="title" />
         </div>
 
         <div
@@ -16,7 +16,7 @@
               v-for="(item, index) in getResumeImg"
               :key="index"
             >
-              <img :src="item.src" :alt="title" />
+              <img :src="getImagePath(item.src)" :alt="title" />
             </div>
           </div>
         </div>
@@ -190,6 +190,8 @@ export default {
       MySwiper();
     }
 
+    console.log(this.getResumeImg);
+
     // this.$nextTick(function () {
     //   ScrollTrigger.create({
     //     trigger: ".resume",
@@ -231,6 +233,12 @@ export default {
   },
   components: {
     Collapse,
+  },
+
+  methods: {
+    getImagePath(src) {
+      return require(`@/assets/images/${src}`);
+    },
   },
 };
 </script>

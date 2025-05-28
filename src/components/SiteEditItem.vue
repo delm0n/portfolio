@@ -79,11 +79,11 @@ export default {
 
   computed: {
     background() {
-      // console.log(this.site);
-
-      return this.site.img.src
-        ? "background: url(" + this.site.img.src + ") center/cover no-repeat"
-        : "background: rgba(238, 238, 238, 0.6)";
+      if (!!this.site.img.src) {
+        const imagePath = require(`@/assets/images/${this.site.img.src}`);
+        return `background: url(${imagePath}) center/cover no-repeat`;
+      }
+      return "background: rgba(238, 238, 238, 0.6)";
     },
   },
 };

@@ -11,13 +11,13 @@
       <div class="site-page__photo" v-if="!!photoShow.length">
         <div class="img-wrapper">
           <a
-            :href="item.src"
+            :href="getImagePath(item.src)"
             v-for="(item, index) in photoShow"
             :key="index"
             :data-fancybox="site.path"
             class="img-wrap"
           >
-            <img :src="item.src" alt="#" />
+            <img :src="getImagePath(item.src)" alt="#" />
           </a>
         </div>
 
@@ -28,13 +28,13 @@
         >
           <div class="img-wrapper">
             <a
-              :href="item.src"
+              :href="getImagePath(item.src)"
               v-for="(item, index) in photoCollapse"
               :key="index"
               :data-fancybox="site.path"
               class="img-wrap"
             >
-              <img :src="item.src" alt="#" />
+              <img :src="getImagePath(item.src)" alt="#" />
             </a>
           </div>
         </collapse>
@@ -119,6 +119,10 @@ export default {
   },
   methods: {
     ...mapMutations(["setAnimation"]),
+
+    getImagePath(src) {
+      return require(`@/assets/images/${src}`);
+    },
   },
 };
 </script>

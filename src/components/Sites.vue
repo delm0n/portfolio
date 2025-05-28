@@ -92,8 +92,8 @@ export default {
               animation: this.gsap.from(element, {
                 autoAlpha: 0,
                 y: 150,
-                delay: 0.75,
-                duration: 1.25,
+                delay: 0.5,
+                duration: 1,
                 ease: "power1.out",
 
                 onStart: () => {

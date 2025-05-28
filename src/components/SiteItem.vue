@@ -29,9 +29,11 @@ export default {
     },
 
     background() {
-      return !!this.site.img.src
-        ? "url(" + this.site.img.src + ") center/cover no-repeat, #fff"
-        : "#fff";
+      if (!!this.site.img.src) {
+        const imagePath = require(`@/assets/images/${this.site.img.src}`);
+        return `url(${imagePath}) center/cover no-repeat, #fff`;
+      }
+      return "#fff";
     },
   },
 };
@@ -48,7 +50,7 @@ export default {
       width: 100%;
       aspect-ratio: 1920/1200;
 
-      transition: all 0.3s;
+      transition: all 0.2s;
       background-size: cover;
       background-position: center;
     }

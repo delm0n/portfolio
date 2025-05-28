@@ -130,6 +130,8 @@ export const resume = {
     },
 
     getResumeImg(state) {
+      console.log(state.resume);
+
       return state.resume.image;
     },
 

@@ -50,10 +50,10 @@ export default {
   },
   mounted() {
     this.uploadData();
-    this.uploadImage();
+    // this.uploadImage();
     this.checkPdf();
 
-    this.uploadImageArray();
+    // this.uploadImageArray();
 
     const windowbreakpoint = window.matchMedia("(max-width: 768px)");
     const breakpointChecker = () => {
