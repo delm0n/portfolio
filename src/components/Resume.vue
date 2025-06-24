@@ -3,7 +3,10 @@
     <div class="resume-wrapper">
       <div class="resume-row">
         <div v-if="getResumeImg.length == 1" class="resume-image">
-          <img :src="getImagePath(getResumeImg[0].src)" :alt="title" />
+          <picture>
+            <source :srcset="getImageWebpPath(getResumeImg[0].src)" />
+            <img :src="getImagePath(getResumeImg[0].src)" :alt="title" />
+          </picture>
         </div>
 
         <div
@@ -16,7 +19,10 @@
               v-for="(item, index) in getResumeImg"
               :key="index"
             >
-              <img :src="getImagePath(item.src)" :alt="title" />
+              <picture>
+                <source :srcset="getImageWebpPath(getResumeImg[0].src)" />
+                <img :src="getImagePath(getResumeImg[0].src)" :alt="title" />
+              </picture>
             </div>
           </div>
         </div>
@@ -238,6 +244,9 @@ export default {
   methods: {
     getImagePath(src) {
       return require(`@/assets/images/${src}`);
+    },
+    getImageWebpPath(src) {
+      return require(`@/assets/images/${src.replace("png", "webp")}`);
     },
   },
 };
