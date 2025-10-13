@@ -97,11 +97,10 @@ export default {
                 ease: "power1.out",
 
                 onStart: () => {
-                  element.querySelector(
-                    ".site-item__img .img-wrap"
-                  ).style.background = element.querySelector(
-                    ".site-item__img .img-wrap"
-                  ).dataset.back;
+                  element.querySelector(".site-item__img .img-wrap").style =
+                    element.querySelector(
+                      ".site-item__img .img-wrap"
+                    ).dataset.back;
                   element.querySelector(
                     ".site-item__img .img-wrap"
                   ).dataset.back = "";
@@ -175,14 +174,16 @@ export default {
         }
       }
 
-      .site-item:not(.site-animation--active) {
-        &:hover {
-          .site-item__img .img-wrap {
-            transform: scale(1.025);
-          }
+      @media (hover: hover) {
+        .site-item:not(.site-animation--active) {
+          &:hover {
+            .site-item__img .img-wrap {
+              transform: scale(1.025);
+            }
 
-          .site-keywords {
-            opacity: 0.8;
+            .site-keywords {
+              opacity: 0.8;
+            }
           }
         }
       }

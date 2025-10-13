@@ -90,7 +90,7 @@ export default {
               }
             );
           },
-          this.isProd ? 3000 : 500
+          this.isProd ? 3000 : 300
         );
       } else {
         setTimeout(() => {

@@ -6,6 +6,60 @@
   },
   "sites": [
     {
+      "id": "49a3b093-7c5a-4a7f-8b1c-65b5090db15c",
+      "name": "ГЕЛИКОН PROM",
+      "descr": "Helicon,\nПроектирование и реализация многостраничного корпоративного сайта с рендерингом на стороне сервера, февраль 2025\n\nИспользованные технологии: nuxt 3, ssr, typescript, pinia, vite",
+      "link": "https://dev.helicon-prom.ru/",
+      "page": "",
+      "path": "helicon-prom",
+      "keywords": [
+        "Nuxt",
+        "Typescript",
+        "SSR",
+        "Многостраничный сайт",
+        "Фильтр"
+      ],
+      "imagesContent": [
+        { "src": "helicon-prom-6.png" },
+        { "src": "helicon-prom-2.png" },
+        { "src": "helicon-prom-3.png" },
+        { "src": "helicon-prom-4.png" },
+        { "src": "helicon-prom-5.png" }
+      ],
+      "img": { "src": "helicon-prom-1.png" }
+    },
+
+    {
+      "id": "49a3b083-7c5a-4a7f-8b1c-65b5090db154",
+      "name": "Дипломная работа, сайт пиццерии",
+      "descr": "Разработка дизайна, проектирование и реализация многостраничного прогрессивного веб-приложения пиццерии с рендерингом на стороне сервера, 2025\n\nИспользованные технологии: nuxt 3, ssr, typescript, pinia, pwa, vite, PostgreSQL, C#",
+      "link": "",
+      "page": "",
+      "path": "pizzeria-pwa",
+      "keywords": [
+        "Nuxt",
+        "Typescript",
+        "PWA",
+        "SSR",
+        "Pinia",
+        "Многостраничный сайт",
+        "Конструктор"
+      ],
+      "imagesContent": [
+        { "src": "pizzeria-pwa-2.png" },
+        { "src": "pizzeria-pwa-3.png" },
+        { "src": "pizzeria-pwa-4.png" },
+        { "src": "pizzeria-pwa-5.png" },
+        { "src": "pizzeria-pwa-6.png" },
+        { "src": "pizzeria-pwa-7.png" },
+        { "src": "pizzeria-pwa-8.png" },
+        { "src": "pizzeria-pwa-9.png" },
+        { "src": "pizzeria-pwa-10.png" }
+      ],
+      "img": { "src": "pizzeria-pwa-1.png" }
+    },
+
+    {
       "id": "b4fcaa73-056f-4a07-ae36-0f03d4934097",
       "name": "Аппарат Органик ",
       "descr": "Helicon,\nВёрстка сайта, февраль 2024\n\nИспользованные технологии: vue, vuex, gsap, swiper, fancybox, webpack",
@@ -14,12 +68,12 @@
       "path": "organic-pro",
       "keywords": ["Лендинг", "Корзина", "Каталог", "Конструктор", "Vue"],
       "imagesContent": [
-        { "src": "organic-pro-2.png", "type": "image/png" },
-        { "src": "organic-pro-4.png", "type": "image/png" },
-        { "src": "organic-pro-5.png", "type": "image/png" },
-        { "src": "organic-pro-6.png", "type": "image/png" }
+        { "src": "organic-pro-2.png" },
+        { "src": "organic-pro-4.png" },
+        { "src": "organic-pro-5.png" },
+        { "src": "organic-pro-6.png" }
       ],
-      "img": { "src": "organic-pro-1.png", "type": "image/png" }
+      "img": { "src": "organic-pro-1.png" }
     },
     {
       "id": "a6dcc85d-b3df-43d1-abf1-3ee3fae8f37f",
@@ -30,10 +84,10 @@
       "path": "burzhujka-vita",
       "keywords": ["Многостраничный сайт", "Конструктор", "Слайдер", "Vue"],
       "imagesContent": [
-        { "src": "burzhujka-vita-2.png", "type": "image/png" },
-        { "src": "burzhujka-vita-3.png", "type": "image/png" }
+        { "src": "burzhujka-vita-2.png" },
+        { "src": "burzhujka-vita-3.png" }
       ],
-      "img": { "src": "burzhujka-vita-1.png", "type": "image/png" }
+      "img": { "src": "burzhujka-vita-1.png" }
     },
     {
       "id": "4a8f99c9-f0f4-46e0-9476-9c59de69e30e",
@@ -44,12 +98,12 @@
       "path": "apparat-dionis",
       "keywords": ["Лендинг", "Конструктор", "3d-модель", "Корзина", "Vue"],
       "imagesContent": [
-        { "src": "apparat-dionis-2.png", "type": "image/png" },
-        { "src": "apparat-dionis-3.png", "type": "image/png" },
-        { "src": "apparat-dionis-4.png", "type": "image/png" },
-        { "src": "apparat-dionis-5.png", "type": "image/png" }
+        { "src": "apparat-dionis-2.png" },
+        { "src": "apparat-dionis-3.png" },
+        { "src": "apparat-dionis-4.png" },
+        { "src": "apparat-dionis-5.png" }
       ],
-      "img": { "src": "apparat-dionis-1.png", "type": "image/png" }
+      "img": { "src": "apparat-dionis-1.png" }
     },
     {
       "id": "5500cea8-ef4a-4754-8eb1-938f968918df",
@@ -60,10 +114,10 @@
       "path": "grinder-sputnik",
       "keywords": ["Лендинг", "Конструктор", "Vue"],
       "imagesContent": [
-        { "src": "grinder-sputnik-2.png", "type": "image/png" },
-        { "src": "grinder-sputnik-3.png", "type": "image/png" }
+        { "src": "grinder-sputnik-2.png" },
+        { "src": "grinder-sputnik-3.png" }
       ],
-      "img": { "src": "grinder-sputnik-1.png", "type": "image/png" }
+      "img": { "src": "grinder-sputnik-1.png" }
     },
     {
       "id": "fc599f60-b448-474c-9da5-97d3d2e7189f",
@@ -74,10 +128,10 @@
       "path": "pivovarnya-bavaria",
       "keywords": ["Лендинг", "Анимация", "Слайдер", "Vue"],
       "imagesContent": [
-        { "src": "pivovarnya-bavaria-2.png", "type": "image/png" },
-        { "src": "pivovarnya-bavaria-3.png", "type": "image/png" }
+        { "src": "pivovarnya-bavaria-2.png" },
+        { "src": "pivovarnya-bavaria-3.png" }
       ],
-      "img": { "src": "pivovarnya-bavaria-1.png", "type": "image/png" }
+      "img": { "src": "pivovarnya-bavaria-1.png" }
     },
     {
       "id": "e5d9502b-9c2f-44d6-8218-a3aab1f494de",
@@ -88,10 +142,10 @@
       "path": "avtoklav-krestjanka",
       "keywords": ["Многостраничный сайт", "Конструктор", "Vue"],
       "imagesContent": [
-        { "src": "avtoklav-krestjanka-2.png", "type": "image/png" },
-        { "src": "avtoklav-krestjanka-3.png", "type": "image/png" }
+        { "src": "avtoklav-krestjanka-2.png" },
+        { "src": "avtoklav-krestjanka-3.png" }
       ],
-      "img": { "src": "avtoklav-krestjanka-1.png", "type": "image/png" }
+      "img": { "src": "avtoklav-krestjanka-1.png" }
     },
     {
       "id": "8a30d99b-57b3-4d4f-b5a8-fe5fc757130a",
@@ -102,10 +156,10 @@
       "path": "apparat-alhimik",
       "keywords": ["Лендинг", "Слайдер", "Vue"],
       "imagesContent": [
-        { "src": "apparat-alhimik-2.png", "type": "image/png" },
-        { "src": "apparat-alhimik-3.png", "type": "image/png" }
+        { "src": "apparat-alhimik-2.png" },
+        { "src": "apparat-alhimik-3.png" }
       ],
-      "img": { "src": "apparat-alhimik-1.png", "type": "image/png" }
+      "img": { "src": "apparat-alhimik-1.png" }
     },
     {
       "id": "6ea948a5-102d-4e41-90fb-42e1c9e9af37",
@@ -116,11 +170,11 @@
       "path": "grinder-udachniy",
       "keywords": ["Лендинг", "Конструктор", "Vue"],
       "imagesContent": [
-        { "src": "grinder-udachniy-2.png", "type": "image/png" },
-        { "src": "grinder-udachniy-3.png", "type": "image/png" },
-        { "src": "grinder-udachniy-4.png", "type": "image/png" }
+        { "src": "grinder-udachniy-2.png" },
+        { "src": "grinder-udachniy-3.png" },
+        { "src": "grinder-udachniy-4.png" }
       ],
-      "img": { "src": "grinder-udachniy-1.png", "type": "image/png" }
+      "img": { "src": "grinder-udachniy-1.png" }
     },
     {
       "id": "e3d0e42b-4035-4558-be61-b0f77b972297",
@@ -131,10 +185,10 @@
       "path": "koptilnya-bravo",
       "keywords": ["Лендинг", "Конструктор", "Vue"],
       "imagesContent": [
-        { "src": "koptilnya-bravo-2.png", "type": "image/png" },
-        { "src": "koptilnya-bravo-3.png", "type": "image/png" }
+        { "src": "koptilnya-bravo-2.png" },
+        { "src": "koptilnya-bravo-3.png" }
       ],
-      "img": { "src": "koptilnya-bravo-1.png", "type": "image/png" }
+      "img": { "src": "koptilnya-bravo-1.png" }
     },
     {
       "id": "6991b380-38c7-44d3-aa79-7fd144946dee",
@@ -144,10 +198,8 @@
       "page": "https://delm0n.github.io/mangal-firegrill-site/",
       "path": "mangal-firegrill",
       "keywords": ["Промо-страница", "Каталог", "Слайдер", "Vue"],
-      "imagesContent": [
-        { "src": "mangal-firegrill-2.png", "type": "image/png" }
-      ],
-      "img": { "src": "mangal-firegrill-1.png", "type": "image/png" }
+      "imagesContent": [{ "src": "mangal-firegrill-2.png" }],
+      "img": { "src": "mangal-firegrill-1.png" }
     },
     {
       "id": "481be975-cc65-42af-bd42-12e4619d0369",
@@ -158,10 +210,10 @@
       "path": "peskostruj-bulat",
       "keywords": ["Лендинг", "3d-модель", "Конструктор", "Слайдер", "React"],
       "imagesContent": [
-        { "src": "peskostruj-bulat-2.png", "type": "image/png" },
-        { "src": "peskostruj-bulat-3.png", "type": "image/png" }
+        { "src": "peskostruj-bulat-2.png" },
+        { "src": "peskostruj-bulat-3.png" }
       ],
-      "img": { "src": "peskostruj-bulat-1.png", "type": "image/png" }
+      "img": { "src": "peskostruj-bulat-1.png" }
     },
     {
       "id": "f949e23f-d20f-44cf-b71c-862901bdbc81",
@@ -172,10 +224,10 @@
       "path": "pizzeria",
       "keywords": ["Многостраничный сайт", "Корзина", "Angular"],
       "imagesContent": [
-        { "src": "pizzeria-2.png", "type": "image/png" },
-        { "src": "pizzeria-3.png", "type": "image/png" }
+        { "src": "pizzeria-2.png" },
+        { "src": "pizzeria-3.png" }
       ],
-      "img": { "src": "pizzeria-1.png", "type": "image/png" }
+      "img": { "src": "pizzeria-1.png" }
     },
     {
       "id": "f292cb6a-416d-40bd-b2c7-ae77eb956b88",
@@ -186,10 +238,10 @@
       "path": "apparat-bulat",
       "keywords": ["Корзина"],
       "imagesContent": [
-        { "src": "apparat-bulat-2.png", "type": "image/png" },
-        { "src": "apparat-bulat-3.png", "type": "image/png" }
+        { "src": "apparat-bulat-2.png" },
+        { "src": "apparat-bulat-3.png" }
       ],
-      "img": { "src": "apparat-bulat-1.png", "type": "image/png" }
+      "img": { "src": "apparat-bulat-1.png" }
     },
     {
       "id": "5a1f23e1-4ab1-434b-a9c4-dc4348229f7c",
@@ -200,7 +252,7 @@
       "path": "stanok-bulat",
       "keywords": ["Лендинг", "Слайдер"],
       "imagesContent": [],
-      "img": { "src": "stanok-bulat-1.png", "type": "image/png" }
+      "img": { "src": "stanok-bulat-1.png" }
     },
     {
       "id": "411b59c2-5af0-4e10-8fd7-00a77a875e4e",
@@ -211,7 +263,7 @@
       "path": "gidrolat-eva",
       "keywords": [],
       "imagesContent": [],
-      "img": { "src": "gidrolat-eva-1.png", "type": "image/png" }
+      "img": { "src": "gidrolat-eva-1.png" }
     },
     {
       "id": "87384d89-d63c-4309-a76b-91c4d4d8ff39",
@@ -222,7 +274,7 @@
       "path": "koptilnya-voron",
       "keywords": [],
       "imagesContent": [],
-      "img": { "src": "koptilnya-voron-1.png", "type": "image/png" }
+      "img": { "src": "koptilnya-voron-1.png" }
     },
     {
       "id": "fa579fb5-21f0-4c86-8e4d-e572c88a3ef0",
@@ -232,8 +284,8 @@
       "page": "https://delm0n.github.io/web-prokat-site/",
       "path": "prokat",
       "keywords": ["Лендинг", "Дизайн"],
-      "imagesContent": [{ "src": "prokat-2.png", "type": "image/png" }],
-      "img": { "src": "prokat-1.png", "type": "image/png" }
+      "imagesContent": [{ "src": "prokat-2.png" }],
+      "img": { "src": "prokat-1.png" }
     },
     {
       "id": "c5aae7bd-b6af-4d13-a6f6-c409ddb81402",
@@ -244,11 +296,11 @@
       "path": "alpha-marketing",
       "keywords": ["Лендинг"],
       "imagesContent": [
-        { "src": "alpha-marketing-2.png", "type": "image/png" },
-        { "src": "alpha-marketing-3.png", "type": "image/png" },
-        { "src": "alpha-marketing-4.png", "type": "image/png" }
+        { "src": "alpha-marketing-2.png" },
+        { "src": "alpha-marketing-3.png" },
+        { "src": "alpha-marketing-4.png" }
       ],
-      "img": { "src": "alpha-marketing-1.png", "type": "image/png" }
+      "img": { "src": "alpha-marketing-1.png" }
     }
   ],
   "resume": {
@@ -257,9 +309,9 @@
     "birthday": "2002-12-10T15:23:00.000Z",
     "about": "Усидчивый и целеустремлённый frontend-разработчик с опытом работы, специализирующийся на создании адаптивных и кросс-браузерных веб-интерфейсов с использованием Vue.js, Nuxt.js и современных инструментов сборки.  Готов к работе над интересными проектами в динамичной команде.\n\nСтек технологий: Vue, Nuxt, HTML5, CSS, JavaScript, TypeScript, jQuery, Gulp, Webpack, Git, Docker.\n",
     "image": [
-      { "src": "avatar-1.png", "type": "image/png" },
-      { "src": "avatar-2.png", "type": "image/png" },
-      { "src": "avatar-3.png", "type": "image/png" }
+      { "src": "avatar-1.png" },
+      { "src": "avatar-2.png" },
+      { "src": "avatar-3.png" }
     ],
     "works": [
       {
@@ -278,6 +330,13 @@
       }
     ],
     "educations": [
+      {
+        "id": "6afdf131-00dc-4c92-8174-ed36d077ad93",
+        "dateStart": "2025-09-01T20:52:00.000Z",
+        "dateEnd": null,
+        "name": "Вятский государственный университет, информационные системы и сети (магистратура)",
+        "until": true
+      },
       {
         "id": "e82bf13b-428a-4ef2-bcbb-7cde67208c8e",
         "dateStart": "2020-09-01T07:07:00.000Z",

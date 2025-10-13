@@ -2,7 +2,11 @@
   <router-link :to="'/site/' + site.path">
     <div class="site-item">
       <div class="site-item__img">
-        <div class="img-wrap" :data-back="background" style=""></div>
+        <div
+          class="img-wrap"
+          :data-back="background"
+          :style="getMYBOOL ? background : ''"
+        ></div>
       </div>
       <div class="site-item__content">
         <p class="site-name">
@@ -18,6 +22,8 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
   props: {
     site: Object,
@@ -31,10 +37,13 @@ export default {
     background() {
       if (!!this.site.img.src) {
         const imagePath = require(`@/assets/images/${this.site.img.src}`);
-        return `url(${imagePath}) center/cover no-repeat, #fff`;
+        return `background: url(${imagePath}) center/cover no-repeat, #fff; 
+        opacity: 1;`;
       }
       return "#fff";
     },
+
+    ...mapGetters(["getMYBOOL"]),
   },
 };
 </script>
@@ -67,12 +76,15 @@ export default {
 
     .site-keywords {
       transition: all 0.4s;
-      opacity: 0;
       @include fluidFontSize(14, 16, 320, 1920);
 
       font-weight: 400;
       color: var(--text-color);
       margin-top: 10px;
+
+      @media (hover: hover) {
+        opacity: 0;
+      }
     }
   }
 }

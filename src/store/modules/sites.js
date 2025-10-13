@@ -20,6 +20,7 @@ export const sites = {
   state: () => ({
     sites: [],
     keyFilter: "",
+    MYBOOL: false,
 
     siteModal: JSON.parse(JSON.stringify(modalDefault)),
   }),
@@ -127,6 +128,7 @@ export const sites = {
     },
 
     setKeyFilter(state, value) {
+      state.MYBOOL = true;
       if (state.keyFilter == value) {
         state.keyFilter = "";
       } else {
@@ -137,6 +139,10 @@ export const sites = {
   getters: {
     getSites(state) {
       return state.sites;
+    },
+
+    getMYBOOL(state) {
+      return state.MYBOOL;
     },
 
     getSitesView(state) {
