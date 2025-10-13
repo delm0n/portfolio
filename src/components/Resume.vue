@@ -20,8 +20,11 @@
               :key="index"
             >
               <picture>
-                <source :srcset="getImageWebpPath(getResumeImg[0].src)" />
-                <img :src="getImagePath(getResumeImg[0].src)" :alt="title" />
+                <source :srcset="getImageWebpPath(getResumeImg[index].src)" />
+                <img
+                  :src="getImagePath(getResumeImg[index].src)"
+                  :alt="title"
+                />
               </picture>
             </div>
           </div>
