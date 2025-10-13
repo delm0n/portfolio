@@ -114,7 +114,7 @@ export default {
       setTimeout(() => {
         document.getElementById("#loader").classList.remove("load");
         document.body.classList.remove("preload");
-      }, 500);
+      }, 100);
     });
   },
   methods: {

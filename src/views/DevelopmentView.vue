@@ -1,12 +1,12 @@
 <template>
   <div>
-    <about-me-edit />
+    <!-- <about-me-edit />
 
     <resume-edit />
     <sites-edit />
 
     <modal-site-edit />
-    <button-json />
+    <button-json /> -->
   </div>
 </template>
 
@@ -127,5 +127,3 @@ export default {
   }
 }
 </style>
-
-
